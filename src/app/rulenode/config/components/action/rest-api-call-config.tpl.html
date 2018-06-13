@@ -1,0 +1,46 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section ng-form name="restApiCallConfigForm" layout="column">
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.endpoint-url-pattern</label>
+        <input ng-required="true" name="endpointUrlPattern" ng-model="configuration.restEndpointUrlPattern"/>
+        <div ng-messages="restApiCallConfigForm.endpointUrlPattern.$error">
+            <div ng-message="required" translate>tb.rulenode.endpoint-url-pattern-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.endpoint-url-pattern-hint</div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.request-method</label>
+        <md-select ng-model="configuration.requestMethod" ng-disabled="$root.loading">
+            <md-option ng-repeat="type in ruleNodeTypes.httpRequestType" ng-value="type">
+                {{ type }}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <label translate class="tb-title">tb.rulenode.headers</label>
+    <div class="tb-hint" translate>tb.rulenode.headers-hint</div>
+    <tb-kv-map-config
+            ng-model="configuration.headers"
+            ng-required="false"
+            key-text="'tb.rulenode.header'"
+            key-required-text="'tb.rulenode.header-required'"
+            val-text="'tb.rulenode.value'"
+            val-required-text="'tb.rulenode.value-required'">
+    </tb-kv-map-config>
+</section>

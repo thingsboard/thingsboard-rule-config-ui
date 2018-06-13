@@ -1,0 +1,192 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section class="tb-mqtt-config" ng-form name="mqttConfigForm" layout="column">
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.topic-pattern</label>
+        <input ng-required="true" name="topicPattern"
+               ng-model="configuration.topicPattern">
+        <div ng-messages="mqttConfigForm.topicPattern.$error">
+            <div translate ng-message="required">tb.rulenode.topic-pattern-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.mqtt-topic-pattern-hint</div>
+    </md-input-container>
+    <div flex layout="column" layout-gt-sm="row">
+        <md-input-container flex="60" class="md-block">
+            <label translate>tb.rulenode.host</label>
+            <input ng-required="true" name="host" ng-model="configuration.host">
+            <div ng-messages="mqttConfigForm.host.$error">
+                <div translate ng-message="required">tb.rulenode.host-required</div>
+            </div>
+        </md-input-container>
+        <md-input-container flex="40" class="md-block">
+            <label translate>tb.rulenode.port</label>
+            <input type="number" step="1" min="1" max="65535" ng-required="true"
+                   name="port" ng-model="configuration.port">
+            <div ng-messages="mqttConfigForm.port.$error">
+                <div translate ng-message="required">tb.rulenode.port-required</div>
+                <div translate ng-message="min">tb.rulenode.port-range</div>
+                <div translate ng-message="max">tb.rulenode.port-range</div>
+            </div>
+        </md-input-container>
+        <md-input-container flex="40" class="md-block">
+            <label translate>tb.rulenode.connect-timeout</label>
+            <input type="number" step="1" min="1" max="200" ng-required="true"
+                   name="connectTimeoutSec" ng-model="configuration.connectTimeoutSec">
+            <div ng-messages="mqttConfigForm.connectTimeoutSec.$error">
+                <div translate ng-message="required">tb.rulenode.connect-timeout-required</div>
+                <div translate ng-message="min">tb.rulenode.connect-timeout-range</div>
+                <div translate ng-message="max">tb.rulenode.connect-timeout-range</div>
+            </div>
+        </md-input-container>
+    </div>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.client-id</label>
+        <input name="clientId" ng-model="configuration.clientId">
+    </md-input-container>
+    <md-checkbox ng-disabled="$root.loading || readonly"
+                 aria-label="{{ 'tb.rulenode.clean-session' | translate }}"
+                 ng-model="configuration.cleanSession">
+        {{ 'tb.rulenode.clean-session' | translate }}
+    </md-checkbox>
+    <md-checkbox ng-disabled="$root.loading || readonly"
+                 aria-label="{{ 'tb.rulenode.enable-ssl' | translate }}"
+                 ng-model="configuration.ssl">
+        {{ 'tb.rulenode.enable-ssl' | translate }}
+    </md-checkbox>
+    <md-expansion-panel-group class="tb-credentials-panel-group" ng-class="{'disabled': $root.loading || readonly}" md-component-id="credentialsPanelGroup">
+        <md-expansion-panel md-component-id="credentialsPanel">
+            <md-expansion-panel-collapsed>
+                <div class="tb-panel-title">{{ 'tb.rulenode.credentials' | translate }}</div>
+                <div class="tb-panel-prompt">{{ ruleNodeTypes.mqttCredentialTypes[configuration.credentials.type].name | translate }}</div>
+                <span flex></span>
+                <md-expansion-panel-icon></md-expansion-panel-icon>
+            </md-expansion-panel-collapsed>
+            <md-expansion-panel-expanded>
+                <md-expansion-panel-header ng-click="$mdExpansionPanel('credentialsPanel').collapse()">
+                    <div class="tb-panel-title">{{ 'tb.rulenode.credentials' | translate }}</div>
+                    <div class="tb-panel-prompt">{{ ruleNodeTypes.mqttCredentialTypes[configuration.credentials.type].name | translate }}</div>
+                    <span flex></span>
+                    <md-expansion-panel-icon></md-expansion-panel-icon>
+                </md-expansion-panel-header>
+                <md-expansion-panel-content>
+                    <div layout="column">
+                        <md-input-container class="md-block">
+                            <label translate>tb.rulenode.credentials-type</label>
+                            <md-select ng-required="true" name="credentialsType" ng-model="configuration.credentials.type"
+                                       ng-disabled="$root.loading || readonly" ng-change="credentialsTypeChanged()">
+                                <md-option ng-repeat="(credentialsType, credentialsValue) in ruleNodeTypes.mqttCredentialTypes" ng-value="credentialsValue.value">
+                                    {{credentialsValue.name | translate}}
+                                </md-option>
+                            </md-select>
+                            <div ng-messages="mqttConfigForm.credentialsType.$error">
+                                <div translate ng-message="required">tb.rulenode.credentials-type-required</div>
+                            </div>
+                        </md-input-container>
+                        <section flex layout="column" ng-if="configuration.credentials.type == ruleNodeTypes.mqttCredentialTypes.basic.value">
+                            <md-input-container class="md-block">
+                                <label translate>tb.rulenode.username</label>
+                                <input ng-required="true" name="mqttUsername" ng-model="configuration.credentials.username">
+                                <div ng-messages="mqttConfigForm.mqttUsername.$error">
+                                    <div translate ng-message="required">tb.rulenode.username-required</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label translate>tb.rulenode.password</label>
+                                <input type="password" ng-required="true" name="mqttPassword" ng-model="configuration.credentials.password">
+                                <div ng-messages="mqttConfigForm.mqttPassword.$error">
+                                    <div translate ng-message="required">tb.rulenode.password-required</div>
+                                </div>
+                            </md-input-container>
+                        </section>
+                        <section flex layout="column" ng-if="configuration.credentials.type == ruleNodeTypes.mqttCredentialTypes['cert.PEM'].value"
+                                 class="dropdown-section">
+                            <div class="tb-container" ng-class="configuration.credentials.caCertFileName ? 'ng-valid' : 'ng-invalid'">
+                                <label class="tb-label" translate>tb.rulenode.ca-cert</label>
+                                <div flow-init="{singleFile:true}" flow-file-added="certFileAdded($file, 'caCert')" class="tb-file-select-container">
+                                    <div class="tb-file-clear-container">
+                                        <md-button ng-click="clearCertFile('caCert')" class="tb-file-clear-btn md-icon-button md-primary" aria-label="{{ 'action.remove' | translate }}">
+                                            <md-tooltip md-direction="top">
+                                                {{ 'action.remove' | translate }}
+                                            </md-tooltip>
+                                            <md-icon aria-label="{{ 'action.remove' | translate }}" class="material-icons">close</md-icon>
+                                        </md-button>
+                                    </div>
+                                    <div class="alert tb-flow-drop" flow-drop>
+                                        <label for="caCertSelect" translate>tb.rulenode.drop-file</label>
+                                        <input class="file-input" flow-btn id="caCertSelect">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-messages">
+                                <div ng-if="!configuration.credentials.caCertFileName" class="tb-error-message" translate>tb.rulenode.no-file</div>
+                                <div ng-if="configuration.credentials.caCertFileName">{{configuration.credentials.caCertFileName}}</div>
+                            </div>
+                            <div class="tb-container" ng-class="configuration.credentials.certFileName ? 'ng-valid' : 'ng-invalid'">
+                                <label class="tb-label" translate>tb.rulenode.cert</label>
+                                <div flow-init="{singleFile:true}" flow-file-added="certFileAdded($file, 'Cert')" class="tb-file-select-container">
+                                    <div class="tb-file-clear-container">
+                                        <md-button ng-click="clearCertFile('Cert')" class="tb-file-clear-btn md-icon-button md-primary" aria-label="{{ 'action.remove' | translate }}">
+                                            <md-tooltip md-direction="top">
+                                                {{ 'action.remove' | translate }}
+                                            </md-tooltip>
+                                            <md-icon aria-label="{{ 'action.remove' | translate }}" class="material-icons">close</md-icon>
+                                        </md-button>
+                                    </div>
+                                    <div class="alert tb-flow-drop" flow-drop>
+                                        <label for="CertSelect" translate>tb.rulenode.drop-file</label>
+                                        <input class="file-input" flow-btn id="CertSelect">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-messages">
+                                <div ng-if="!configuration.credentials.certFileName" class="tb-error-message" translate>tb.rulenode.no-file</div>
+                                <div ng-if="configuration.credentials.certFileName">{{configuration.credentials.certFileName}}</div>
+                            </div>
+                            <div class="tb-container" ng-class="configuration.credentials.privateKeyFileName ? 'ng-valid' : 'ng-invalid'">
+                                <label class="tb-label" translate>tb.rulenode.private-key</label>
+                                <div flow-init="{singleFile:true}" flow-file-added="certFileAdded($file, 'privateKey')" class="tb-file-select-container">
+                                    <div class="tb-file-clear-container">
+                                        <md-button ng-click="clearCertFile('privateKey')" class="tb-file-clear-btn md-icon-button md-primary" aria-label="{{ 'action.remove' | translate }}">
+                                            <md-tooltip md-direction="top">
+                                                {{ 'action.remove' | translate }}
+                                            </md-tooltip>
+                                            <md-icon aria-label="{{ 'action.remove' | translate }}" class="material-icons">close</md-icon>
+                                        </md-button>
+                                    </div>
+                                    <div class="alert tb-flow-drop" flow-drop>
+                                        <label for="privateKeySelect" translate>tb.rulenode.drop-file</label>
+                                        <input class="file-input" flow-btn id="privateKeySelect">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-messages">
+                                <div ng-if="!configuration.credentials.privateKeyFileName" class="tb-error-message" translate>tb.rulenode.no-file</div>
+                                <div ng-if="configuration.credentials.privateKeyFileName">{{configuration.credentials.privateKeyFileName}}</div>
+                            </div>
+                            <md-input-container class="md-block">
+                                <label translate>tb.rulenode.private-key-password</label>
+                                <input type="password" name="privateKeyPassword" ng-model="configuration.credentials.password">
+                            </md-input-container>
+                        </section>
+                    </div>
+                </md-expansion-panel-content>
+            </md-expansion-panel-expanded>
+        </md-expansion-panel>
+    </md-expansion-panel-group>
+</section>

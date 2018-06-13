@@ -1,0 +1,49 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section ng-form name="snsConfigForm" layout="column">
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.topic-arn-pattern</label>
+        <input ng-required="true" name="topicArnPattern" ng-model="configuration.topicArnPattern"/>
+        <div ng-messages="snsConfigForm.topicArnPattern.$error">
+            <div ng-message="required" translate>tb.rulenode.topic-arn-pattern-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.topic-arn-pattern-hint</div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.aws-access-key-id</label>
+        <input ng-required="true" name="accessKeyId" ng-model="configuration.accessKeyId"/>
+        <div ng-messages="snsConfigForm.accessKeyId.$error">
+            <div ng-message="required" translate>tb.rulenode.aws-access-key-id-required</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.aws-secret-access-key</label>
+        <input ng-required="true" name="secretAccessKey" ng-model="configuration.secretAccessKey"/>
+        <div ng-messages="snsConfigForm.secretAccessKey.$error">
+            <div ng-message="required" translate>tb.rulenode.aws-secret-access-key-required</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.aws-region</label>
+        <input ng-required="true" name="region" ng-model="configuration.region"/>
+        <div ng-messages="snsConfigForm.region.$error">
+            <div ng-message="required" translate>tb.rulenode.aws-region-required</div>
+        </div>
+    </md-input-container>
+</section>

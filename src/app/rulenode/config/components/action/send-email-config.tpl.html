@@ -1,0 +1,73 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section ng-form name="sendEmailConfigForm" layout="column">
+    <md-checkbox ng-disabled="$root.loading || readonly"
+                 aria-label="{{ 'tb.rulenode.use-system-smtp-settings' | translate }}"
+                 ng-model="configuration.useSystemSmtpSettings">
+        {{ 'tb.rulenode.use-system-smtp-settings' | translate }}
+    </md-checkbox>
+    <section layout="column" ng-if="!configuration.useSystemSmtpSettings">
+        <md-input-container class="md-block">
+            <label translate>tb.rulenode.smtp-protocol</label>
+            <md-select ng-disabled="$root.loading || readonly" ng-model="configuration.smtpProtocol">
+                <md-option ng-repeat="smtpProtocol in smtpProtocols" value="{{smtpProtocol}}">
+                    {{smtpProtocol.toUpperCase()}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex="100" flex-gt-sm="60">
+                <label translate>tb.rulenode.smtp-host</label>
+                <input ng-required="true" name="smtpHost" ng-model="configuration.smtpHost">
+                <div ng-messages="sendEmailConfigForm.smtpHost.$error">
+                    <div translate ng-message="required">tb.rulenode.smtp-host-required</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex="100" flex-gt-sm="40">
+                <label translate>tb.rulenode.smtp-port</label>
+                <input type="number" step="1" min="1" max="65535" ng-required="true"
+                       name="port" ng-model="configuration.smtpPort">
+                <div ng-messages="sendEmailConfigForm.port.$error">
+                    <div translate ng-message="required">tb.rulenode.smtp-port-required</div>
+                    <div translate ng-message="min">tb.rulenode.smtp-port-range</div>
+                    <div translate ng-message="max">tb.rulenode.smtp-port-range</div>
+                </div>
+            </md-input-container>
+        </div>
+        <md-input-container class="md-block">
+            <label translate>tb.rulenode.timeout-msec</label>
+            <input type="number" step="1" min="0" ng-required="true"
+                   name="timeout" ng-model="configuration.timeout">
+            <div ng-messages="sendEmailConfigForm.timeout.$error">
+                <div translate ng-message="required">tb.rulenode.timeout-required</div>
+                <div translate ng-message="min">tb.rulenode.min-timeout-msec-message</div>
+            </div>
+        </md-input-container>
+        <md-checkbox ng-disabled="$root.loading || readonly"
+                     aria-label="{{ 'tb.rulenode.enable-tls' | translate }}" ng-model="configuration.enableTls">{{ 'tb.rulenode.enable-tls' | translate }}</md-checkbox>
+        <md-input-container class="md-block">
+            <label translate>tb.rulenode.username</label>
+            <input name="username" placeholder="{{ 'tb.rulenode.enter-username' | translate }}" ng-model="configuration.username">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label translate>tb.rulenode.password</label>
+            <input name="password" placeholder="{{ 'tb.rulenode.enter-password' | translate }}" type="password" ng-model="configuration.password">
+        </md-input-container>
+    </section>
+</section>

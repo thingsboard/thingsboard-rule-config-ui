@@ -1,0 +1,63 @@
+{
+  "name": "thingsboard-rule-config-ui",
+  "private": true,
+  "version": "2.0.4",
+  "description": "ThingsBoard Rules Config UI",
+  "scripts": {
+    "cleanup": "rm -rf ./target",
+    "getthingsboard": "git clone git@github.com:thingsboard/thingsboard.git ./target/git-tmp/thingsboard",
+    "start": "babel-node --max_old_space_size=4096 server.js",
+    "build": "cross-env NODE_ENV=production webpack -p"
+  },
+  "dependencies": {
+    "jquery": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.16.0",
+    "connect-history-api-fallback": "^1.3.0",
+    "copy-webpack-plugin": "^3.0.1",
+    "cross-env": "^3.2.4",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.4.0",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-angular": "^1.3.1",
+    "eslint-plugin-import": "^1.14.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.3",
+    "html-minifier": "^3.2.2",
+    "html-minifier-loader": "^1.3.4",
+    "html-webpack-plugin": "^2.22.0",
+    "img-loader": "^1.3.1",
+    "json-loader": "^0.5.7",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "ng-annotate-loader": "^0.1.1",
+    "node-sass": "^3.9.3",
+    "postcss-loader": "^0.13.0",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "thingsboard": "file:./target/git-tmp/thingsboard/ui",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-dev-server": "^1.15.1",
+    "webpack-hot-middleware": "^2.12.2"
+  },
+  "engine": "node >= 5.9.0",
+  "nyc": {
+    "exclude": [
+      "test",
+      "__tests__",
+      "node_modules",
+      "target"
+    ]
+  }
+}

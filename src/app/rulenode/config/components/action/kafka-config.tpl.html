@@ -1,0 +1,93 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section ng-form name="kafkaConfigForm" layout="column">
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.topic-pattern</label>
+        <input ng-required="true" name="topicPattern" ng-model="configuration.topicPattern"/>
+        <div ng-messages="kafkaConfigForm.topicPattern.$error">
+            <div ng-message="required" translate>tb.rulenode.topic-pattern-required</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.bootstrap-servers</label>
+        <input ng-required="true" name="bootstrapServers" ng-model="configuration.bootstrapServers"/>
+        <div ng-messages="kafkaConfigForm.bootstrapServers.$error">
+            <div ng-message="required" translate>tb.rulenode.bootstrap-servers-required</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.retries</label>
+        <input type="number" step="1" name="retries" ng-model="configuration.retries" min="0"/>
+        <div ng-messages="kafkaConfigForm.retries.$error">
+            <div ng-message="min" translate>tb.rulenode.min-retries-message</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.batch-size-bytes</label>
+        <input type="number" step="1" name="batchSize" ng-model="configuration.batchSize" min="0"/>
+        <div ng-messages="kafkaConfigForm.batchSize.$error">
+            <div ng-message="min" translate>tb.rulenode.min-batch-size-bytes-message</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.linger-ms</label>
+        <input type="number" step="1" name="linger" ng-model="configuration.linger" min="0"/>
+        <div ng-messages="kafkaConfigForm.linger.$error">
+            <div ng-message="min" translate>tb.rulenode.min-linger-ms-message</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.buffer-memory-bytes</label>
+        <input type="number" step="1" name="bufferMemory" ng-model="configuration.bufferMemory" min="0"/>
+        <div ng-messages="kafkaConfigForm.bufferMemory.$error">
+            <div ng-message="min" translate>tb.rulenode.min-buffer-memory-bytes-message</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.acks</label>
+        <md-select ng-model="configuration.acks" ng-disabled="$root.loading">
+            <md-option ng-repeat="ackValue in ackValues" ng-value="ackValue">
+                {{ ackValue }}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.key-serializer</label>
+        <input ng-required="true" name="keySerializer" ng-model="configuration.keySerializer"/>
+        <div ng-messages="kafkaConfigForm.keySerializer.$error">
+            <div ng-message="required" translate>tb.rulenode.key-serializer-required</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.value-serializer</label>
+        <input ng-required="true" name="valueSerializer" ng-model="configuration.valueSerializer"/>
+        <div ng-messages="kafkaConfigForm.valueSerializer.$error">
+            <div ng-message="required" translate>tb.rulenode.value-serializer-required</div>
+        </div>
+    </md-input-container>
+    <label translate class="tb-title">tb.rulenode.other-properties</label>
+    <tb-kv-map-config
+            ng-model="configuration.otherProperties"
+            ng-required="false"
+            key-text="'tb.rulenode.key'"
+            key-required-text="'tb.rulenode.key-required'"
+            val-text="'tb.rulenode.value'"
+            val-required-text="'tb.rulenode.value-required'">
+    </tb-kv-map-config>
+</section>

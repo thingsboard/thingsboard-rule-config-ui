@@ -1,0 +1,94 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section ng-form name="rabbitMqConfigForm" layout="column">
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.exchange-name-pattern</label>
+        <input name="exchangeNamePattern" ng-model="configuration.exchangeNamePattern"/>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.routing-key-pattern</label>
+        <input name="routingKeyPattern" ng-model="configuration.routingKeyPattern"/>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.message-properties</label>
+        <md-select ng-model="configuration.messageProperties" ng-disabled="$root.loading || readonly">
+            <md-option ng-repeat="property in messageProperties" ng-value="property">
+                {{ property }}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex="100" flex-gt-sm="60">
+            <label translate>tb.rulenode.host</label>
+            <input ng-required="true" name="host" ng-model="configuration.host"/>
+            <div ng-messages="rabbitMqConfigForm.host.$error">
+                <div ng-message="required" translate>tb.rulenode.host-required</div>
+            </div>
+        </md-input-container>
+        <md-input-container class="md-block" flex="100" flex-gt-sm="40">
+            <label translate>tb.rulenode.port</label>
+            <input ng-required="true" type="number" step="1" name="port" ng-model="configuration.port" min="0" max="65535"/>
+            <div ng-messages="rabbitMqConfigForm.port.$error">
+                <div ng-message="required" translate>tb.rulenode.port-required</div>
+                <div ng-message="min" translate>tb.rulenode.port-range</div>
+                <div ng-message="max" translate>tb.rulenode.port-range</div>
+            </div>
+        </md-input-container>
+    </div>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.virtual-host</label>
+        <input name="virtualHost" ng-model="configuration.virtualHost"/>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.username</label>
+        <input name="virtualHost" ng-model="configuration.username"/>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.password</label>
+        <input name="virtualHost" type="password" ng-model="configuration.password"/>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <md-checkbox ng-disabled="$root.loading || readonly" aria-label="{{ 'tb.rulenode.automatic-recovery' | translate }}"
+                     ng-model="ruleNode.automaticRecoveryEnabled">{{ 'tb.rulenode.automatic-recovery' | translate }}
+        </md-checkbox>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.connection-timeout-ms</label>
+        <input type="number" step="1" name="connectionTimeout" ng-model="configuration.connectionTimeout" min="0"/>
+        <div ng-messages="rabbitMqConfigForm.connectionTimeout.$error">
+            <div ng-message="min" translate>tb.rulenode.min-connection-timeout-ms-message</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.handshake-timeout-ms</label>
+        <input type="number" step="1" name="handshakeTimeout" ng-model="configuration.handshakeTimeout" min="0"/>
+        <div ng-messages="rabbitMqConfigForm.handshakeTimeout.$error">
+            <div ng-message="min" translate>tb.rulenode.min-handshake-timeout-ms-message</div>
+        </div>
+    </md-input-container>
+    <label translate class="tb-title">tb.rulenode.client-properties</label>
+    <tb-kv-map-config
+            ng-model="configuration.clientProperties"
+            ng-required="false"
+            key-text="'tb.rulenode.key'"
+            key-required-text="'tb.rulenode.key-required'"
+            val-text="'tb.rulenode.value'"
+            val-required-text="'tb.rulenode.value-required'">
+    </tb-kv-map-config>
+</section>

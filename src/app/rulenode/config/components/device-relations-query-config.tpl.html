@@ -1,0 +1,52 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section layout="column">
+    <div layout="row">
+        <md-input-container class="md-block" style="min-width: 100px;">
+            <label translate>relation.direction</label>
+            <md-select required ng-model="query.direction">
+                <md-option ng-repeat="direction in types.entitySearchDirection" ng-value="direction">
+                    {{ ('relation.search-direction.' + direction) | translate}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label translate>tb.rulenode.max-relation-level</label>
+            <input name="maxRelationLevel"
+                   type="number"
+                   min="1"
+                   step="1"
+                   placeholder="{{ 'tb.rulenode.unlimited-level' | translate }}"
+                   ng-model="query.maxLevel"
+                   aria-label="{{ 'tb.rulenode.max-relation-level' | translate }}">
+        </md-input-container>
+    </div>
+    <div class="md-caption" style="color: rgba(0,0,0,0.57);" translate>relation.relation-type</div>
+    <tb-relation-type-autocomplete flex
+                                   hide-label
+                                   ng-model="query.relationType"
+                                   tb-required="false">
+    </tb-relation-type-autocomplete>
+    <div class="md-caption tb-required" style="color: rgba(0,0,0,0.57);" translate>device.device-types</div>
+    <tb-entity-subtype-list
+            tb-required="true"
+            entity-type="types.entityType.device"
+            ng-model="query.deviceTypes">
+    </tb-entity-subtype-list>
+</section>

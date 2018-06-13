@@ -1,0 +1,62 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section ng-form name="toEmailConfigForm" layout="column">
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.from-template</label>
+        <textarea ng-required="true" name="fromTemplate" ng-model="configuration.fromTemplate" rows="2"></textarea>
+        <div ng-messages="toEmailConfigForm.fromTemplate.$error">
+            <div ng-message="required" translate>tb.rulenode.from-template-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.from-template-hint</div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.to-template</label>
+        <textarea ng-required="true" name="toTemplate" ng-model="configuration.toTemplate" rows="2"></textarea>
+        <div ng-messages="toEmailConfigForm.toTemplate.$error">
+            <div ng-message="required" translate>tb.rulenode.to-template-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.mail-address-list-template-hint</div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.cc-template</label>
+        <textarea name="ccTemplate" ng-model="configuration.ccTemplate" rows="2"></textarea>
+        <div class="tb-hint" translate>tb.rulenode.mail-address-list-template-hint</div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.bcc-template</label>
+        <textarea name="ccTemplate" ng-model="configuration.bccTemplate" rows="2"></textarea>
+        <div class="tb-hint" translate>tb.rulenode.mail-address-list-template-hint</div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.subject-template</label>
+        <textarea ng-required="true" name="subjectTemplate" ng-model="configuration.subjectTemplate" rows="2"></textarea>
+        <div ng-messages="toEmailConfigForm.subjectTemplate.$error">
+            <div ng-message="required" translate>tb.rulenode.subject-template-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.subject-template-hint</div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.body-template</label>
+        <textarea ng-required="true" name="bodyTemplate" ng-model="configuration.bodyTemplate" rows="6"></textarea>
+        <div ng-messages="toEmailConfigForm.bodyTemplate.$error">
+            <div ng-message="required" translate>tb.rulenode.body-template-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.body-template-hint</div>
+    </md-input-container>
+</section>
