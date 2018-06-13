@@ -206,15 +206,7 @@ export default function addRuleNodeCoreLocaleEnglish(locales) {
                 "min-timeout-msec-message": "Only 0 ms minimum value is allowed.",
                 "enter-username": "Enter username",
                 "enter-password": "Enter password",
-                "enable-tls": "Enable TLS",
-                "group-name-pattern": "Group name pattern",
-                "group-name-pattern-required": "Group name pattern is required",
-                "group-name-pattern-hint": "Group name pattern, use <code>${metaKeyName}</code> to substitute variables from metadata",
-                "create-group-if-not-exists": "Create new group if not exists",
-                "group-cache-expiration": "Groups cache expiration time (sec)",
-                "group-cache-expiration-required": "Groups cache expiration time is required.",
-                "group-cache-expiration-range": "Groups cache expiration time should be greater than or equal to 0.",
-                "group-cache-expiration-hint": "Specifies maximum time interval allowed to store found entity group records. 0 value means that records will never expire."
+                "enable-tls": "Enable TLS"
             },
             "key-val": {
                 "key": "Key",

@@ -64,14 +64,6 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                 'ATTRIBUTES_DELETED': {
                     name: 'Attributes Deleted',
                     value: 'ATTRIBUTES_DELETED'
-                },
-                'ADDED_TO_ENTITY_GROUP': {
-                    name: 'Added to Group',
-                    value: 'ADDED_TO_ENTITY_GROUP'
-                },
-                'REMOVED_FROM_ENTITY_GROUP': {
-                    name: 'Removed from Group',
-                    value: 'REMOVED_FROM_ENTITY_GROUP'
                 }
             },
             originatorSource: {
