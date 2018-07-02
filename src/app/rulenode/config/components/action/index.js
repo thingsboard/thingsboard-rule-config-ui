@@ -29,6 +29,7 @@ import SqsConfigDirective from './sqs-config.directive';
 import RabbitMqConfigDirective from './rabbit-mq-config.directive';
 import MqttConfigDirective from './mqtt-config.directive';
 import SendEmailConfigDirective from './send-email-config.directive';
+import MsgDelayConfigDirective from './msg-delay-config.directive';
 
 export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeTimeseriesConfig', TimeseriesConfigDirective)
@@ -46,4 +47,5 @@ export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeRabbitMqConfig', RabbitMqConfigDirective)
     .directive('tbActionNodeMqttConfig', MqttConfigDirective)
     .directive('tbActionNodeSendEmailConfig', SendEmailConfigDirective)
+    .directive('tbActionNodeMsgDelayConfig', MsgDelayConfigDirective)
     .name;

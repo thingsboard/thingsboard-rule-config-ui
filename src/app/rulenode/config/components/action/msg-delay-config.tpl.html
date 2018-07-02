@@ -1,0 +1,37 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section ng-form name="msgDelayConfigForm" layout="column">
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.period-seconds</label>
+        <input ng-required="true" type="number" step="1" name="periodInSeconds" ng-model="configuration.periodInSeconds" min="0"/>
+        <div ng-messages="msgDelayConfigForm.periodInSeconds.$error" multiple md-auto-hide="false">
+            <div ng-message="required" translate>tb.rulenode.period-seconds-required</div>
+            <div ng-message="min" translate>tb.rulenode.min-period-0-seconds-message</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.max-pending-messages</label>
+        <input ng-required="true" type="number" step="1" name="maxPendingMsgs" ng-model="configuration.maxPendingMsgs" min="1" max="100000"/>
+        <div ng-messages="msgDelayConfigForm.maxPendingMsgs.$error" multiple md-auto-hide="false">
+            <div ng-message="required" translate>tb.rulenode.max-pending-messages-required</div>
+            <div ng-message="min" translate>tb.rulenode.max-pending-messages-range</div>
+            <div ng-message="max" translate>tb.rulenode.max-pending-messages-range</div>
+        </div>
+    </md-input-container>
+</section>

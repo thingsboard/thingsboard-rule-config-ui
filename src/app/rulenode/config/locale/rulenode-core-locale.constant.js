@@ -206,7 +206,11 @@ export default function addRuleNodeCoreLocaleEnglish(locales) {
                 "min-timeout-msec-message": "Only 0 ms minimum value is allowed.",
                 "enter-username": "Enter username",
                 "enter-password": "Enter password",
-                "enable-tls": "Enable TLS"
+                "enable-tls": "Enable TLS",
+                "min-period-0-seconds-message": "Only 0 second minimum period is allowed.",
+                "max-pending-messages": "Maximum pending messages",
+                "max-pending-messages-required": "Maximum pending messages is required.",
+                "max-pending-messages-range": "Maximum pending messages should be in a range from 1 to 100000."
             },
             "key-val": {
                 "key": "Key",
