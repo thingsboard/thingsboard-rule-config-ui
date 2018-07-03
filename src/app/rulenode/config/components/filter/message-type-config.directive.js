@@ -23,7 +23,7 @@ import messageTypeConfigTemplate from './message-type-config.tpl.html';
 /* eslint-enable import/no-unresolved, import/default */
 
 /*@ngInject*/
-export default function MessageTypeConfigDirective($compile, $filter, ruleNodeTypes) {
+export default function MessageTypeConfigDirective($compile, $filter, types) {
 
     var linker = function (scope, element, attrs, ngModelCtrl) {
         var template = messageTypeConfigTemplate;
@@ -35,10 +35,10 @@ export default function MessageTypeConfigDirective($compile, $filter, ruleNodeTy
         scope.ngModelCtrl = ngModelCtrl;
 
         var messageTypesList = [];
-        for (var type in ruleNodeTypes.messageType) {
+        for (var type in types.messageType) {
             var messageType = {
-                name: ruleNodeTypes.messageType[type].name,
-                value: ruleNodeTypes.messageType[type].value
+                name: types.messageType[type].name,
+                value: types.messageType[type].value
             };
             messageTypesList.push(messageType);
         }
@@ -78,8 +78,8 @@ export default function MessageTypeConfigDirective($compile, $filter, ruleNodeTy
             if (configuration && configuration.messageTypes) {
                 for (var i = 0; i < configuration.messageTypes.length; i++) {
                     var messageType = configuration.messageTypes[i];
-                    if (ruleNodeTypes.messageType[messageType]) {
-                        messageTypes.push(angular.copy(ruleNodeTypes.messageType[messageType]));
+                    if (types.messageType[messageType]) {
+                        messageTypes.push(angular.copy(types.messageType[messageType]));
                     } else {
                         messageTypes.push({
                             name: messageType,
