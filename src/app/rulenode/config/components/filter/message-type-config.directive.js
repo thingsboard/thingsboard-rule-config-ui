@@ -73,6 +73,10 @@ export default function MessageTypeConfigDirective($compile, $filter, types) {
         };
 
         ngModelCtrl.$render = function () {
+            if (scope.messageTypesWatch) {
+                scope.messageTypesWatch();
+                scope.messageTypesWatch = null;
+            }
             var configuration = ngModelCtrl.$viewValue;
             var messageTypes = [];
             if (configuration && configuration.messageTypes) {
@@ -89,7 +93,7 @@ export default function MessageTypeConfigDirective($compile, $filter, types) {
                 }
             }
             scope.messageTypes = messageTypes;
-            scope.$watch('messageTypes', function (newVal, prevVal) {
+            scope.messageTypesWatch = scope.$watch('messageTypes', function (newVal, prevVal) {
                 if (!angular.equals(newVal, prevVal)) {
                     updateMessageTypes();
                 }
