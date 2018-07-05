@@ -210,7 +210,8 @@ export default function addRuleNodeCoreLocaleEnglish(locales) {
                 "min-period-0-seconds-message": "Only 0 second minimum period is allowed.",
                 "max-pending-messages": "Maximum pending messages",
                 "max-pending-messages-required": "Maximum pending messages is required.",
-                "max-pending-messages-range": "Maximum pending messages should be in a range from 1 to 100000."
+                "max-pending-messages-range": "Maximum pending messages should be in a range from 1 to 100000.",
+                "originator-types-filter": "Originator types filter"
             },
             "key-val": {
                 "key": "Key",

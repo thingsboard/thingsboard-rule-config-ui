@@ -18,10 +18,12 @@ import ScriptConfigDirective from './script-config.directive';
 import MessageTypeConfigDirective from './message-type-config.directive';
 import SwitchConfigDirective from './switch-config.directive';
 import CheckRelationConfigDirective from './check-relation-config.directive';
+import OriginatorTypeConfigDirective from './originator-type-config.directive';
 
 export default angular.module('thingsboard.ruleChain.config.filter', [])
     .directive('tbFilterNodeScriptConfig', ScriptConfigDirective)
     .directive('tbFilterNodeMessageTypeConfig', MessageTypeConfigDirective)
     .directive('tbFilterNodeSwitchConfig', SwitchConfigDirective)
     .directive('tbFilterNodeCheckRelationConfig', CheckRelationConfigDirective)
+    .directive('tbFilterNodeOriginatorTypeConfig', OriginatorTypeConfigDirective)
     .name;
