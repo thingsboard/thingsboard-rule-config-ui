@@ -17,12 +17,8 @@
 import addRuleNodeCoreLocaleEnglish from './locale/rulenode-core-locale.constant';
 
 /*@ngInject*/
-export default function RuleNodeCoreConfig($translateProvider, locales) {
+export default function RuleNodeCoreConfig($translateProvider) {
 
-    addRuleNodeCoreLocaleEnglish(locales);
+    addRuleNodeCoreLocaleEnglish($translateProvider);
 
-    for (var langKey in locales) {
-        var translationTable = locales[langKey];
-        $translateProvider.translations(langKey, translationTable);
-    }
 }

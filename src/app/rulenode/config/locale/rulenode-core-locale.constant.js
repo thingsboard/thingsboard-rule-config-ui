@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export default function addRuleNodeCoreLocaleEnglish(locales) {
+export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
 
     var en_US = {
         "tb": {
@@ -222,6 +222,6 @@ export default function addRuleNodeCoreLocaleEnglish(locales) {
         }
     };
 
-    angular.merge(locales['en_US'], en_US);
+    $translateProvider.translations('en_US', en_US);
 
 }
