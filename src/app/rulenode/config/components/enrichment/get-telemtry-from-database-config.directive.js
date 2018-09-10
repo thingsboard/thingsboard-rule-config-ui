@@ -30,9 +30,6 @@ export default function GetTelemetryConfigDirective($compile, $mdConstant, ruleN
 
         scope.ruleNodeTypes = ruleNodeTypes;
 
-        scope.startMax = 60;
-        scope.endMax = 60;
-
         scope.aggPeriodTimeUnits = {};
         scope.aggPeriodTimeUnits["MINUTES"] = ruleNodeTypes.timeUnit["MINUTES"];
         scope.aggPeriodTimeUnits["HOURS"] = ruleNodeTypes.timeUnit["HOURS"];
@@ -40,29 +37,6 @@ export default function GetTelemetryConfigDirective($compile, $mdConstant, ruleN
         scope.aggPeriodTimeUnits["MILLISECONDS"] = ruleNodeTypes.timeUnit["MILLISECONDS"];
         scope.aggPeriodTimeUnits["SECONDS"] = ruleNodeTypes.timeUnit["SECONDS"];
 
-        scope.startTimeUnitValidation = function () {
-            if ((scope.configuration.startIntervalTimeUnit == ruleNodeTypes.timeUnit.MINUTES.value) || (scope.configuration.startIntervalTimeUnit == ruleNodeTypes.timeUnit.SECONDS.value)) {
-                scope.startMax = 60;
-            } else if (scope.configuration.startIntervalTimeUnit == ruleNodeTypes.timeUnit.HOURS.value){
-                scope.startMax = 24;
-            } else if (scope.configuration.startIntervalTimeUnit == ruleNodeTypes.timeUnit.DAYS.value){
-                scope.startMax = 365;
-            } else if (scope.configuration.startIntervalTimeUnit == ruleNodeTypes.timeUnit.MILLISECONDS.value){
-                scope.startMax = 1000;
-            }
-        };
-
-        scope.endTimeUnitValidation = function () {
-            if ((scope.configuration.endIntervalTimeUnit == ruleNodeTypes.timeUnit.MINUTES.value) || (scope.configuration.endIntervalTimeUnit == ruleNodeTypes.timeUnit.SECONDS.value)) {
-                scope.endMax = 60;
-            } else if (scope.configuration.endIntervalTimeUnit == ruleNodeTypes.timeUnit.HOURS.value){
-                scope.endMax = 24;
-            } else if (scope.configuration.endIntervalTimeUnit == ruleNodeTypes.timeUnit.DAYS.value){
-                scope.endMax = 365;
-            } else if (scope.configuration.endIntervalTimeUnit == ruleNodeTypes.timeUnit.MILLISECONDS.value){
-                scope.endMax = 1000;
-            }
-        };
 
         scope.$watch('configuration', function (newConfiguration, oldConfiguration) {
             if (!angular.equals(newConfiguration, oldConfiguration)) {

@@ -30,17 +30,17 @@
     <div layout="column" layout-gt-sm="row">
         <md-input-container flex class="md-block tb-time-value">
             <label translate class="tb-title no-padding">tb.rulenode.start-interval</label>
-            <input required type="number" step="1" min="1" max="{{startMax}}" name="startInterval" ng-model="configuration.startInterval">
+            <input required type="number" step="1" min="1" max="2147483647" name="startInterval" ng-model="configuration.startInterval">
             <div ng-messages="getTelemetryConfigForm.startInterval.$error">
                 <div translate ng-message="required">tb.rulenode.start-interval-value-required</div>
-                <div ng-message="min" translate>tb.rulenode.time-value-range-start</div>
-                <div ng-message="max" translate translate-values="{max:startMax}">tb.rulenode.time-value-range-start</div>
+                <div ng-message="min" translate>tb.rulenode.time-value-range</div>
+                <div ng-message="max" translate>tb.rulenode.time-value-range</div>
             </div>
         </md-input-container>
         <md-input-container flex class="md-block tb-time-unit">
             <label translate class="tb-title no-padding">tb.rulenode.start-interval-time-unit</label>
             <md-select required name="startIntervalTimeUnit" aria-label="{{ 'tb.rulenode.start-interval-time-unit' | translate }}"
-                       ng-model="configuration.startIntervalTimeUnit" ng-change="startTimeUnitValidation()">
+                       ng-model="configuration.startIntervalTimeUnit">
                 <md-option ng-repeat="timeUnit in ruleNodeTypes.timeUnit" ng-value="timeUnit.value">
                     {{timeUnit.name | translate}}
                 </md-option>
@@ -50,17 +50,17 @@
     <div layout="column" layout-gt-sm="row">
     <md-input-container flex class="md-block tb-time-value">
         <label translate class="tb-title no-padding">tb.rulenode.end-interval</label>
-        <input required type="number" step="1" min="1" max="{{endMax}}" name="endInterval" ng-model="configuration.endInterval">
+        <input required type="number" step="1" min="1" max="2147483647" name="endInterval" ng-model="configuration.endInterval">
         <div ng-messages="getTelemetryConfigForm.endInterval.$error">
             <div translate ng-message="required">tb.rulenode.end-interval-value-required</div>
-            <div ng-message="min" translate>tb.rulenode.time-value-range-end</div>
-            <div ng-message="max" translate translate-values="{max:endMax}">tb.rulenode.time-value-range-end</div>
+            <div ng-message="min" translate>tb.rulenode.time-value-range</div>
+            <div ng-message="max" translate>tb.rulenode.time-value-range</div>
         </div>
     </md-input-container>
     <md-input-container flex class="md-block tb-time-unit">
         <label translate class="tb-title no-padding">tb.rulenode.end-interval-time-unit</label>
         <md-select required name="endIntervalTimeUnit" aria-label="{{ 'tb.rulenode.end-interval-time-unit' | translate }}"
-                   ng-model="configuration.endIntervalTimeUnit" ng-change="endTimeUnitValidation()">
+                   ng-model="configuration.endIntervalTimeUnit">
             <md-option ng-repeat="timeUnit in ruleNodeTypes.timeUnit" ng-value="timeUnit.value">
                 {{timeUnit.name | translate}}
             </md-option>
