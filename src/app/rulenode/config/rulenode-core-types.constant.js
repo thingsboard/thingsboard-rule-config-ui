@@ -18,6 +18,11 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                     value: 'RELATED'
                 }
             },
+            fetchModeType:[
+                'FIRST',
+                'LAST',
+                'ALL'
+            ],
             httpRequestType: [
                 'GET',
                 'POST',
@@ -32,6 +37,28 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                 'FIFO': {
                     name: 'tb.rulenode.sqs-queue-fifo',
                     value: 'FIFO'
+                }
+            },
+            timeUnit: {
+                "MILLISECONDS": {
+                    value: "MILLISECONDS",
+                    name: "tb.rulenode.time-unit-milliseconds"
+                },
+                "SECONDS": {
+                    value: "SECONDS",
+                    name: "tb.rulenode.time-unit-seconds"
+                },
+                "MINUTES": {
+                    value: "MINUTES",
+                    name: "tb.rulenode.time-unit-minutes"
+                },
+                "HOURS": {
+                    value: "HOURS",
+                    name: "tb.rulenode.time-unit-hours"
+                },
+                "DAYS": {
+                    value: "DAYS",
+                    name: "tb.rulenode.time-unit-days"
                 }
             },
             mqttCredentialTypes: {

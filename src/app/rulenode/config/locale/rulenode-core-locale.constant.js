@@ -18,6 +18,20 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
     var en_US = {
         "tb": {
             "rulenode": {
+                "start-interval": "Start Interval",
+                "end-interval": "End Interval",
+                "start-interval-time-unit": "Start Interval Time Unit",
+                "end-interval-time-unit": "End Interval Time Unit",
+                "fetch-mode": "Fetch mode",
+                "time-unit-milliseconds": "Milliseconds",
+                "time-unit-seconds": "Seconds",
+                "time-unit-minutes": "Minutes",
+                "time-unit-hours": "Hours",
+                "time-unit-days": "Days",
+                "time-value-range-start": "Time value should be in a range from 1 to '{{max}}'.",
+                "time-value-range-end": "Time value should be in a range from 1 to '{{max}}'.",
+                "start-interval-value-required": "Start interval value is required.",
+                "end-interval-value-required": "End interval value is required.",
                 "filter": "Filter",
                 "switch": "Switch",
                 "message-type": "Message type",

@@ -20,6 +20,8 @@ import DeviceAttributesConfigDirective from './device-attributes-config.directiv
 import RelatedAttributesConfigDirective from './related-attributes-config.directive';
 import CustomerAttributesConfigDirective from './customer-attributes-config.directive';
 import TenantAttributesConfigDirective from './tenant-attributes-config.directive';
+import GetTelemetryConfigDirective from './get-telemtry-from-database-config.directive';
+
 
 export default angular.module('thingsboard.ruleChain.config.enrichment', [])
     .directive('tbEnrichmentNodeOriginatorAttributesConfig', OriginatorAttributesConfigDirective)
@@ -28,4 +30,5 @@ export default angular.module('thingsboard.ruleChain.config.enrichment', [])
     .directive('tbEnrichmentNodeRelatedAttributesConfig', RelatedAttributesConfigDirective)
     .directive('tbEnrichmentNodeCustomerAttributesConfig', CustomerAttributesConfigDirective)
     .directive('tbEnrichmentNodeTenantAttributesConfig', TenantAttributesConfigDirective)
+    .directive('tbEnrichmentNodeGetTelemetryFromDatabase',GetTelemetryConfigDirective)
     .name;
