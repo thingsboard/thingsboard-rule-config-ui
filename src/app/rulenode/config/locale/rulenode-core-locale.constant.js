@@ -224,7 +224,12 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "max-pending-messages": "Maximum pending messages",
                 "max-pending-messages-required": "Maximum pending messages is required.",
                 "max-pending-messages-range": "Maximum pending messages should be in a range from 1 to 100000.",
-                "originator-types-filter": "Originator types filter"
+                "originator-types-filter": "Originator types filter",
+                "interval-seconds": "Interval in seconds",
+                "interval-seconds-required": "Interval is required.",
+                "min-interval-seconds-message": "Only 1 second minimum interval is allowed.",
+                "output-timeseries-key-prefix": "Output timeseries key prefix",
+                "output-timeseries-key-prefix-required": "Output timeseries key prefix required."
             },
             "key-val": {
                 "key": "Key",
