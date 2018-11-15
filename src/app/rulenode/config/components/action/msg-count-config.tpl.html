@@ -1,0 +1,35 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section ng-form name="msgCountConfigForm" layout="column">
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.interval-seconds</label>
+        <input ng-required="true" type="number" step="1" name="interval" ng-model="configuration.interval" min="1"/>
+        <div ng-messages="msgCountConfigForm.interval.$error" multiple md-auto-hide="false">
+            <div ng-message="required" translate>tb.rulenode.interval-seconds-required</div>
+            <div ng-message="min" translate>tb.rulenode.min-interval-seconds-message</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.output-timeseries-key-prefix</label>
+        <input ng-required="true" name="telemetryPrefix" ng-model="configuration.telemetryPrefix">
+        <div ng-messages="msgCountConfigForm.telemetryPrefix.$error">
+            <div translate ng-message="required">tb.rulenode.output-timeseries-key-prefix-required</div>
+        </div>
+    </md-input-container>
+</section>
