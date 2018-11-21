@@ -31,6 +31,7 @@ import MqttConfigDirective from './mqtt-config.directive';
 import SendEmailConfigDirective from './send-email-config.directive';
 import MsgDelayConfigDirective from './msg-delay-config.directive';
 import MsgCountConfigDirective from './msg-count-config.directive';
+import AssignToCustomerConfigDirective from './assign-customer-config.directive';
 
 export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeTimeseriesConfig', TimeseriesConfigDirective)
@@ -50,4 +51,5 @@ export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeSendEmailConfig', SendEmailConfigDirective)
     .directive('tbActionNodeMsgDelayConfig', MsgDelayConfigDirective)
     .directive('tbActionNodeMsgCountConfig', MsgCountConfigDirective)
+    .directive('tbActionNodeAssignToCustomerConfig', AssignToCustomerConfigDirective)
     .name;
