@@ -18,6 +18,14 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
     var en_US = {
         "tb": {
             "rulenode": {
+                "customer-name-pattern": "Customer name pattern",
+                "customer-name-pattern-required": "Customer name pattern is required",
+                "create-customer-if-not-exists": "Create new customer if not exists",
+                "customer-cache-expiration": "Customers cache expiration time (sec)",
+                "customer-name-pattern-hint": "Customer name pattern, use <code>${metaKeyName}</code> to substitute variables from metadata",
+                "customer-cache-expiration-hint": "Specifies maximum time interval allowed to store found customer records. 0 value means that records will never expire.",
+                "customer-cache-expiration-required": "Customers cache expiration time is required.",
+                "customer-cache-expiration-range": "Customers cache expiration time should be greater than or equal to 0.",
                 "start-interval": "Start Interval",
                 "end-interval": "End Interval",
                 "start-interval-time-unit": "Start Interval Time Unit",
