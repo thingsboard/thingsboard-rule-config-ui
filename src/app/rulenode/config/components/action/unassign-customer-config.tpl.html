@@ -16,23 +16,20 @@
 
 -->
 
-<section ng-form name="assignCustomerConfigForm" layout="column">
+<section ng-form name="unAssignCustomerConfigForm" layout="column">
     <md-input-container class="md-block">
         <label translate>tb.rulenode.customer-name-pattern</label>
         <input ng-required="true" name="customerNamePattern" ng-model="configuration.customerNamePattern"/>
-        <div ng-messages="assignCustomerConfigForm.customerNamePattern.$error">
+        <div ng-messages="unAssignCustomerConfigForm.customerNamePattern.$error">
             <div ng-message="required" translate>tb.rulenode.customer-name-pattern-required</div>
         </div>
         <div class="tb-hint" translate>tb.rulenode.customer-name-pattern-hint</div>
     </md-input-container>
-    <md-checkbox aria-label="{{ 'tb.rulenode.create-group-if-not-exists' | translate }}"
-                 ng-model="configuration.createCustomerIfNotExists">{{ 'tb.rulenode.create-customer-if-not-exists' | translate }}
-    </md-checkbox>
     <md-input-container class="md-block">
         <label translate>tb.rulenode.customer-cache-expiration</label>
         <input type="number" step="1" min="0" ng-required="true"
                name="customerCacheExpiration" ng-model="configuration.customerCacheExpiration">
-        <div ng-messages="assignCustomerConfigForm.customerCacheExpiration.$error">
+        <div ng-messages="unAssignCustomerConfigForm.customerCacheExpiration.$error">
             <div translate ng-message="required">tb.rulenode.customer-cache-expiration-required</div>
             <div translate ng-message="min">tb.rulenode.customer-cache-expiration-range</div>
         </div>

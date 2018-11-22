@@ -16,15 +16,16 @@
 
 /* eslint-disable import/no-unresolved, import/default */
 
-import assignToCustomerConfigTemplate from './assign-customer-config.tpl.html';
+import unAssignToCustomerConfigTemplate from './unassign-customer-config.tpl.html';
+
 
 /* eslint-enable import/no-unresolved, import/default */
 
 /*@ngInject*/
-export default function AssignToCustomerConfigDirective($compile, types) {
+export default function UnAssignToCustomerConfigDirective($compile, types) {
 
     var linker = function (scope, element, attrs, ngModelCtrl) {
-        var template = assignToCustomerConfigTemplate;
+        var template = unAssignToCustomerConfigTemplate;
         element.html(template);
 
         scope.types = types;
