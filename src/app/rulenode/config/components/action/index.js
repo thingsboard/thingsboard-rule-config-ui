@@ -33,6 +33,7 @@ import MsgDelayConfigDirective from './msg-delay-config.directive';
 import MsgCountConfigDirective from './msg-count-config.directive';
 import AssignToCustomerConfigDirective from './assign-customer-config.directive';
 import UnAssignToCustomerConfigDirective from './unassign-customer-config.directive';
+import RelationActionConfigDirective from './relation-action-config.directive';
 
 export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeTimeseriesConfig', TimeseriesConfigDirective)
@@ -54,4 +55,5 @@ export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeMsgCountConfig', MsgCountConfigDirective)
     .directive('tbActionNodeAssignToCustomerConfig', AssignToCustomerConfigDirective)
     .directive('tbActionNodeUnAssignToCustomerConfig', UnAssignToCustomerConfigDirective)
+    .directive('tbActionNodeRelationConfig', RelationActionConfigDirective)
     .name;

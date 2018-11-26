@@ -18,6 +18,13 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
     var en_US = {
         "tb": {
             "rulenode": {
+                "entity-name-pattern": "Name pattern",
+                "entity-name-pattern-required": "Name pattern is required",
+                "entity-name-pattern-hint": "Name pattern, use <code>${metaKeyName}</code> to substitute variables from metadata",
+                "entity-cache-expiration": "Entities cache expiration time (sec)",
+                "entity-cache-expiration-hint": "Specifies maximum time interval allowed to store found entity records. 0 value means that records will never expire.",
+                "entity-cache-expiration-required": "Entities cache expiration time is required.",
+                "entity-cache-expiration-range": "Entities cache expiration time should be greater than or equal to 0.",
                 "customer-name-pattern": "Customer name pattern",
                 "customer-name-pattern-required": "Customer name pattern is required",
                 "create-customer-if-not-exists": "Create new customer if not exists",
