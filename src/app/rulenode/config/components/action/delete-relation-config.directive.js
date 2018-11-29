@@ -16,15 +16,15 @@
 
 /* eslint-disable import/no-unresolved, import/default */
 
-import relationActionConfigTemplate from './relation-action-config.tpl.html';
+import deleteRelationConfigTemplate from './delete-relation-config.tpl.html';
 
 /* eslint-enable import/no-unresolved, import/default */
 
 /*@ngInject*/
-export default function RelationActionConfigDirective($compile, types) {
+export default function DeleteRelationConfigDirective($compile, types) {
 
     var linker = function (scope, element, attrs, ngModelCtrl) {
-        var template = relationActionConfigTemplate;
+        var template = deleteRelationConfigTemplate;
         element.html(template);
 
         scope.types = types;

@@ -18,6 +18,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
     var en_US = {
         "tb": {
             "rulenode": {
+                "create-entity-if-not-exists": "Create new entity if not exists",
                 "entity-name-pattern": "Name pattern",
                 "entity-name-pattern-required": "Name pattern is required",
                 "entity-name-pattern-hint": "Name pattern, use <code>${metaKeyName}</code> to substitute variables from metadata",
