@@ -33,7 +33,7 @@
                                    ng-model="configuration.entityType">
             </tb-entity-type-select>
         </md-input-container>
-        <md-input-container class="md-block" flex ng-if="configuration.entityType" style="margin-top: 38px;">
+        <md-input-container class="md-block" flex ng-if="configuration.entityType" style="margin-top: 38px; max-width: 250px;">
             <label translate>tb.rulenode.entity-name-pattern</label>
             <input ng-required="true" name="entityNamePattern" ng-model="configuration.entityNamePattern"/>
             <div ng-messages="createRelationConfigForm.entityNamePattern.$error">
@@ -41,13 +41,13 @@
             </div>
             <div class="tb-hint" translate>tb.rulenode.entity-name-pattern-hint</div>
         </md-input-container>
-        <md-input-container class="md-block" flex ng-if="configuration.entityType  == 'DEVICE' || configuration.entityType  == 'ASSET'" style="margin-top: 38px;">
+        <md-input-container class="md-block" flex ng-if="configuration.entityType  == 'DEVICE' || configuration.entityType  == 'ASSET'" style="margin-top: 38px; max-width: 250px;">
             <label translate>tb.rulenode.entity-type-pattern</label>
             <input ng-required="true" name="entityTypePattern" ng-model="configuration.entityTypePattern"/>
             <div ng-messages="createRelationConfigForm.entityTypePattern.$error">
-                <div ng-message="required" translate>tb.rulenode.entity-name-pattern-required</div>
+                <div ng-message="required" translate>tb.rulenode.entity-type-pattern-required</div>
             </div>
-            <div class="tb-hint" translate>tb.rulenode.entity-name-pattern-hint</div>
+            <div class="tb-hint" translate>tb.rulenode.entity-type-pattern-hint</div>
         </md-input-container>
     </div>
     <tb-relation-type-autocomplete hide-label
