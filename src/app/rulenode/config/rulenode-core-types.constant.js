@@ -18,7 +18,7 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                     value: 'RELATED'
                 }
             },
-            fetchModeType:[
+            fetchModeType: [
                 'FIRST',
                 'LAST',
                 'ALL'
@@ -28,6 +28,10 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                 'POST',
                 'PUT',
                 'DELETE'
+            ],
+            transactionEntityType: [
+                'Originator',
+                'Tenant'
             ],
             sqsQueueType: {
                 'STANDARD': {
@@ -62,7 +66,7 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                 }
             },
             mqttCredentialTypes: {
-                anonymous:  {
+                anonymous: {
                     value: "anonymous",
                     name: "tb.rulenode.credentials-anonymous"
                 },
