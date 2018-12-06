@@ -16,7 +16,7 @@
 
 -->
 
-<section ng-form name="createRelationConfigForm" layout="column">
+<section ng-form name="createRelationConfigForm" layout="column" style="width: 650px">
     <md-input-container class="md-block" style="min-width: 100px;">
         <label translate>relation.direction</label>
         <md-select required ng-model="configuration.direction">
@@ -33,7 +33,7 @@
                                    ng-model="configuration.entityType">
             </tb-entity-type-select>
         </md-input-container>
-        <md-input-container class="md-block" flex ng-if="configuration.entityType" style="margin-top: 38px; max-width: 250px;">
+        <md-input-container class="md-block" flex ng-if="configuration.entityType" style="margin-top: 38px;">
             <label translate>tb.rulenode.entity-name-pattern</label>
             <input ng-required="true" name="entityNamePattern" ng-model="configuration.entityNamePattern"/>
             <div ng-messages="createRelationConfigForm.entityNamePattern.$error">
@@ -41,7 +41,7 @@
             </div>
             <div class="tb-hint" translate>tb.rulenode.entity-name-pattern-hint</div>
         </md-input-container>
-        <md-input-container class="md-block" flex ng-if="configuration.entityType  == 'DEVICE' || configuration.entityType  == 'ASSET'" style="margin-top: 38px; max-width: 250px;">
+        <md-input-container class="md-block" flex ng-if="configuration.entityType  == 'DEVICE' || configuration.entityType  == 'ASSET'" style="margin-top: 38px;">
             <label translate>tb.rulenode.entity-type-pattern</label>
             <input ng-required="true" name="entityTypePattern" ng-model="configuration.entityTypePattern"/>
             <div ng-messages="createRelationConfigForm.entityTypePattern.$error">
