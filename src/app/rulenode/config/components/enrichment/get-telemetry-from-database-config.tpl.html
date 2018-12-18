@@ -28,18 +28,20 @@
         </md-select>
     </md-input-container>
     <div layout="column" layout-gt-sm="row">
-        <md-input-container flex class="md-block tb-time-value">
+        <md-input-container flex class="md-block tb-time-value" flex ng-if="configuration.useMetadataIntervalPatterns == false">
             <label translate class="tb-title no-padding">tb.rulenode.start-interval</label>
-            <input required type="number" step="1" min="1" max="2147483647" name="startInterval" ng-model="configuration.startInterval">
+            <input required type="number" step="1" min="1" max="2147483647" name="startInterval"
+                   ng-model="configuration.startInterval">
             <div ng-messages="getTelemetryConfigForm.startInterval.$error">
                 <div translate ng-message="required">tb.rulenode.start-interval-value-required</div>
                 <div ng-message="min" translate>tb.rulenode.time-value-range</div>
                 <div ng-message="max" translate>tb.rulenode.time-value-range</div>
             </div>
         </md-input-container>
-        <md-input-container flex class="md-block tb-time-unit">
+        <md-input-container flex class="md-block tb-time-unit" flex ng-if="configuration.useMetadataIntervalPatterns == false ">
             <label translate class="tb-title no-padding">tb.rulenode.start-interval-time-unit</label>
-            <md-select required name="startIntervalTimeUnit" aria-label="{{ 'tb.rulenode.start-interval-time-unit' | translate }}"
+            <md-select required name="startIntervalTimeUnit"
+                       aria-label="{{ 'tb.rulenode.start-interval-time-unit' | translate }}"
                        ng-model="configuration.startIntervalTimeUnit">
                 <md-option ng-repeat="timeUnit in ruleNodeTypes.timeUnit" ng-value="timeUnit.value">
                     {{timeUnit.name | translate}}
@@ -48,23 +50,46 @@
         </md-input-container>
     </div>
     <div layout="column" layout-gt-sm="row">
-    <md-input-container flex class="md-block tb-time-value">
-        <label translate class="tb-title no-padding">tb.rulenode.end-interval</label>
-        <input required type="number" step="1" min="1" max="2147483647" name="endInterval" ng-model="configuration.endInterval">
-        <div ng-messages="getTelemetryConfigForm.endInterval.$error">
-            <div translate ng-message="required">tb.rulenode.end-interval-value-required</div>
-            <div ng-message="min" translate>tb.rulenode.time-value-range</div>
-            <div ng-message="max" translate>tb.rulenode.time-value-range</div>
-        </div>
-    </md-input-container>
-    <md-input-container flex class="md-block tb-time-unit">
-        <label translate class="tb-title no-padding">tb.rulenode.end-interval-time-unit</label>
-        <md-select required name="endIntervalTimeUnit" aria-label="{{ 'tb.rulenode.end-interval-time-unit' | translate }}"
-                   ng-model="configuration.endIntervalTimeUnit">
-            <md-option ng-repeat="timeUnit in ruleNodeTypes.timeUnit" ng-value="timeUnit.value">
-                {{timeUnit.name | translate}}
-            </md-option>
-        </md-select>
-    </md-input-container>
+        <md-input-container flex class="md-block tb-time-value" flex ng-if="configuration.useMetadataIntervalPatterns == false">
+            <label translate class="tb-title no-padding">tb.rulenode.end-interval</label>
+            <input required type="number" step="1" min="1" max="2147483647" name="endInterval"
+                   ng-model="configuration.endInterval">
+            <div ng-messages="getTelemetryConfigForm.endInterval.$error">
+                <div translate ng-message="required">tb.rulenode.end-interval-value-required</div>
+                <div ng-message="min" translate>tb.rulenode.time-value-range</div>
+                <div ng-message="max" translate>tb.rulenode.time-value-range</div>
+            </div>
+        </md-input-container>
+        <md-input-container flex class="md-block tb-time-unit" flex ng-if="configuration.useMetadataIntervalPatterns === false">
+            <label translate class="tb-title no-padding">tb.rulenode.end-interval-time-unit</label>
+            <md-select required name="endIntervalTimeUnit"
+                       aria-label="{{ 'tb.rulenode.end-interval-time-unit' | translate }}"
+                       ng-model="configuration.endIntervalTimeUnit">
+                <md-option ng-repeat="timeUnit in ruleNodeTypes.timeUnit" ng-value="timeUnit.value">
+                    {{timeUnit.name | translate}}
+                </md-option>
+            </md-select>
+        </md-input-container>
     </div>
+    <md-checkbox aria-label="{{ 'tb.rulenode.use-metadata-interval-patterns' | translate }}"
+                 ng-model="configuration.useMetadataIntervalPatterns">{{ 'tb.rulenode.use-metadata-interval-patterns' |
+        translate }}
+    </md-checkbox>
+    <md-input-container class="md-block" flex ng-if="configuration.useMetadataIntervalPatterns === true"
+                        style="margin-top: 38px;">
+        <label translate>tb.rulenode.start-interval-pattern</label>
+        <input ng-required="true" name="startIntervalPattern" ng-model="configuration.startIntervalPattern"/>
+        <div ng-messages="getTelemetryConfigForm.startIntervalPattern.$error">
+            <div ng-message="required" translate>tb.rulenode.start-interval-pattern-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.start-interval-pattern-hint</div>
+    </md-input-container>
+    <md-input-container class="md-block" flex ng-if="configuration.useMetadataIntervalPatterns === true">
+        <label translate>tb.rulenode.end-interval-pattern</label>
+        <input ng-required="true" name="endIntervalPattern" ng-model="configuration.endIntervalPattern"/>
+        <div ng-messages="getTelemetryConfigForm.endIntervalPattern.$error">
+            <div ng-message="required" translate>tb.rulenode.end-interval-pattern-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.end-interval-pattern-hint</div>
+    </md-input-container>
 </section>
