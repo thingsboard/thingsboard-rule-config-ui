@@ -27,6 +27,10 @@
             </md-option>
         </md-select>
     </md-input-container>
+    <md-checkbox aria-label="{{ 'tb.rulenode.use-metadata-interval-patterns' | translate }}"
+                 ng-model="configuration.useMetadataIntervalPatterns">{{ 'tb.rulenode.use-metadata-interval-patterns' |
+        translate }}
+    </md-checkbox>
     <div layout="column" layout-gt-sm="row">
         <md-input-container flex class="md-block tb-time-value" flex ng-if="configuration.useMetadataIntervalPatterns == false">
             <label translate class="tb-title no-padding">tb.rulenode.start-interval</label>
@@ -71,10 +75,6 @@
             </md-select>
         </md-input-container>
     </div>
-    <md-checkbox aria-label="{{ 'tb.rulenode.use-metadata-interval-patterns' | translate }}"
-                 ng-model="configuration.useMetadataIntervalPatterns">{{ 'tb.rulenode.use-metadata-interval-patterns' |
-        translate }}
-    </md-checkbox>
     <md-input-container class="md-block" flex ng-if="configuration.useMetadataIntervalPatterns === true"
                         style="margin-top: 38px;">
         <label translate>tb.rulenode.start-interval-pattern</label>
