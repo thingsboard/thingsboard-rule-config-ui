@@ -1,0 +1,70 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section ng-form name="createRelationConfigForm" layout="column" style="min-width: 650px">
+    <md-input-container class="md-block" style="min-width: 100px;">
+        <label translate>relation.direction</label>
+        <md-select required ng-model="configuration.direction">
+            <md-option ng-repeat="direction in types.entitySearchDirection" ng-value="direction">
+                {{ ('relation.search-direction.' + direction) | translate}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <div layout='row' class="tb-entity-select">
+        <md-input-container class="md-block">
+            <tb-entity-type-select style="min-width: 100px;"
+                                   the-form="createRelationConfigForm"
+                                   tb-required="true"
+                                   ng-model="configuration.entityType">
+            </tb-entity-type-select>
+        </md-input-container>
+        <md-input-container class="md-block" flex ng-if="configuration.entityType" style="margin-top: 38px;">
+            <label translate>tb.rulenode.entity-name-pattern</label>
+            <input ng-required="true" name="entityNamePattern" ng-model="configuration.entityNamePattern"/>
+            <div ng-messages="createRelationConfigForm.entityNamePattern.$error">
+                <div ng-message="required" translate>tb.rulenode.entity-name-pattern-required</div>
+            </div>
+            <div class="tb-hint" translate>tb.rulenode.entity-name-pattern-hint</div>
+        </md-input-container>
+        <md-input-container class="md-block" flex ng-if="configuration.entityType  == 'DEVICE' || configuration.entityType  == 'ASSET'" style="margin-top: 38px;">
+            <label translate>tb.rulenode.entity-type-pattern</label>
+            <input ng-required="true" name="entityTypePattern" ng-model="configuration.entityTypePattern"/>
+            <div ng-messages="createRelationConfigForm.entityTypePattern.$error">
+                <div ng-message="required" translate>tb.rulenode.entity-type-pattern-required</div>
+            </div>
+            <div class="tb-hint" translate>tb.rulenode.entity-type-pattern-hint</div>
+        </md-input-container>
+    </div>
+    <tb-relation-type-autocomplete hide-label
+                                   ng-model="configuration.relationType"
+                                   tb-required="true">
+    </tb-relation-type-autocomplete>
+    <md-checkbox flex ng-if="configuration.entityType  == 'CUSTOMER' || configuration.entityType  == 'ASSET' || configuration.entityType  == 'DEVICE'" aria-label="{{ 'tb.rulenode.create-entity-if-not-exists' | translate }}"
+                 ng-model="configuration.createEntityIfNotExists">{{ 'tb.rulenode.create-entity-if-not-exists' | translate }}
+    </md-checkbox>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.entity-cache-expiration</label>
+        <input type="number" step="1" min="0" ng-required="true"
+               name="entityCacheExpiration" ng-model="configuration.entityCacheExpiration">
+        <div ng-messages="createRelationConfigForm.entityCacheExpiration.$error">
+            <div translate ng-message="required">tb.rulenode.entity-cache-expiration-required</div>
+            <div translate ng-message="min">tb.rulenode.entity-cache-expiration-range</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.entity-cache-expiration-hint</div>
+    </md-input-container>
+</section>
