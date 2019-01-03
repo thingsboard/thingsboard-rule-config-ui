@@ -1,7 +1,7 @@
 {
   "name": "thingsboard-rule-config-ui",
   "private": true,
-  "version": "2.0.4",
+  "version": "2.2.1",
   "description": "ThingsBoard Rules Config UI",
   "scripts": {
     "cleanup": "rm -rf ./target",
