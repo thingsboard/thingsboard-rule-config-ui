@@ -229,6 +229,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "private-key-password": "Private key password",
                 "use-system-smtp-settings": "Use system SMTP settings",
                 "use-metadata-interval-patterns": "Use metadata interval patterns",
+                "use-message-alarm-data": "Use message alarm data",
                 "start-interval-pattern": "Start interval pattern",
                 "end-interval-pattern": "End interval pattern",
                 "start-interval-pattern-required": "Start interval pattern is required",

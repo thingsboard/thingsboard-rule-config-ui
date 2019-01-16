@@ -29,7 +29,11 @@
             {{ 'tb.rulenode.test-details-function' | translate }}
         </md-button>
     </div>
-    <section layout="column" layout-gt-sm="row">
+    <md-checkbox aria-label="{{ 'tb.rulenode.use-metadata-interval-patterns' | translate }}"
+                 ng-model="configuration.useMessageAlarmData">{{ 'tb.rulenode.use-message-alarm-data' |
+        translate }}
+    </md-checkbox>
+    <section layout="column" layout-gt-sm="row" ng-if="!configuration.useMessageAlarmData">
         <md-input-container flex class="md-block">
             <label translate>tb.rulenode.alarm-type</label>
             <input ng-required="true" name="alarmType" ng-model="configuration.alarmType"/>
@@ -49,7 +53,9 @@
             </div>
         </md-input-container>
     </section>
+    <section layout="column" layout-gt-sm="row" ng-if="!configuration.useMessageAlarmData">
     <md-checkbox aria-label="{{ 'tb.rulenode.propagate' | translate }}"
                  ng-model="configuration.propagate">{{ 'tb.rulenode.propagate' | translate }}
     </md-checkbox>
+    </section>
 </section>
