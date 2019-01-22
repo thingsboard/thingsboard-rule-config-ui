@@ -231,6 +231,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "use-metadata-interval-patterns": "Use metadata interval patterns",
                 "use-message-alarm-data": "Use message alarm data",
                 "check-for-single-entity": "Check for single entity",
+                "delete-for-single-entity": "Delete for single entity",
                 "start-interval-pattern": "Start interval pattern",
                 "end-interval-pattern": "End interval pattern",
                 "start-interval-pattern-required": "Start interval pattern is required",
