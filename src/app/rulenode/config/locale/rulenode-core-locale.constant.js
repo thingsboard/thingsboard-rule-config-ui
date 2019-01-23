@@ -231,7 +231,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "use-metadata-interval-patterns": "Use metadata interval patterns",
                 "use-message-alarm-data": "Use message alarm data",
                 "check-relation-to-specific-entity": "Check relation to specific entity",
-                "check-relation-hint": "Checks existence of relation to specific entity or to any entity based on direction and relation type",
+                "check-relation-hint": "Checks existence of relation to specific entity or to any entity based on direction and relation type.",
                 "delete-relation-to-specific-entity": "Delete relation to specific entity",
                 "delete-relation-hint": "Deletes relation from the originator of the incoming message to the specified entity or list of entities based on direction and type.",
                 "start-interval-pattern": "Start interval pattern",
