@@ -17,6 +17,10 @@
 -->
 
 <section ng-form name="deleteRelationConfigForm" layout="column">
+    <md-checkbox aria-label="{{ 'tb.rulenode.delete-relation-to-specific-entity' | translate }}" ng-model="configuration.deleteForSingleEntity">
+        {{ 'tb.rulenode.delete-relation-to-specific-entity' | translate }}
+    </md-checkbox>
+    <div class="tb-hint" translate>tb.rulenode.delete-relation-hint</div>
     <md-input-container class="md-block" style="min-width: 100px;">
         <label translate>relation.direction</label>
         <md-select required ng-model="configuration.direction">
@@ -25,7 +29,7 @@
             </md-option>
         </md-select>
     </md-input-container>
-    <div layout='row' class="tb-entity-select">
+    <div layout='row' class="tb-entity-select" ng-if="configuration.deleteForSingleEntity">
         <md-input-container class="md-block">
             <tb-entity-type-select style="min-width: 100px;"
                                    the-form="deleteRelationConfigForm"

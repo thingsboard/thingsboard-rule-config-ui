@@ -17,6 +17,10 @@
 -->
 
 <section ng-form name="checkRelationConfigForm">
+    <md-checkbox aria-label="{{ 'tb.rulenode.check-relation-to-specific-entity' | translate }}" ng-model="configuration.checkForSingleEntity">
+        {{ 'tb.rulenode.check-relation-to-specific-entity' | translate }}
+    </md-checkbox>
+    <div class="tb-hint" translate>tb.rulenode.check-relation-hint</div>
     <md-input-container class="md-block" style="min-width: 100px;">
         <label translate>relation.direction</label>
         <md-select required ng-model="configuration.direction">
@@ -25,8 +29,8 @@
             </md-option>
         </md-select>
     </md-input-container>
-    <div layout='row' class="tb-entity-select">
-        <tb-entity-type-select style="min-width: 100px;"
+    <div layout='row' class="tb-entity-select" ng-if="configuration.checkForSingleEntity" style="padding-top: 20px">
+        <tb-entity-type-select style="min-width: 100px; padding-bottom: 20px;"
                                the-form="checkRelationConfigForm"
                                tb-required="true"
                                ng-model="configuration.entityType">
