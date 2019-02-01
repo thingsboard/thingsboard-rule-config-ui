@@ -31,6 +31,7 @@
                  ng-model="configuration.useMetadataIntervalPatterns">{{ 'tb.rulenode.use-metadata-interval-patterns' |
         translate }}
     </md-checkbox>
+    <div class="tb-hint" translate>tb.rulenode.use-metadata-interval-patterns-hint</div>
     <div layout="column" layout-gt-sm="row">
         <md-input-container flex class="md-block tb-time-value" flex ng-if="configuration.useMetadataIntervalPatterns == false">
             <label translate class="tb-title no-padding">tb.rulenode.start-interval</label>

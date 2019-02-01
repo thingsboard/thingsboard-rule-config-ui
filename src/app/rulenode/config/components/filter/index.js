@@ -19,6 +19,7 @@ import MessageTypeConfigDirective from './message-type-config.directive';
 import SwitchConfigDirective from './switch-config.directive';
 import CheckRelationConfigDirective from './check-relation-config.directive';
 import OriginatorTypeConfigDirective from './originator-type-config.directive';
+import CheckMessageConfigDirective from './check-message-config.directive.js';
 
 export default angular.module('thingsboard.ruleChain.config.filter', [])
     .directive('tbFilterNodeScriptConfig', ScriptConfigDirective)
@@ -26,4 +27,5 @@ export default angular.module('thingsboard.ruleChain.config.filter', [])
     .directive('tbFilterNodeSwitchConfig', SwitchConfigDirective)
     .directive('tbFilterNodeCheckRelationConfig', CheckRelationConfigDirective)
     .directive('tbFilterNodeOriginatorTypeConfig', OriginatorTypeConfigDirective)
+    .directive('tbFilterNodeCheckMessageConfig', CheckMessageConfigDirective)
     .name;
