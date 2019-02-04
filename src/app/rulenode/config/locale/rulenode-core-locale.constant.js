@@ -19,6 +19,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
         "tb": {
             "rulenode": {
                 "create-entity-if-not-exists": "Create new entity if not exists",
+                "create-entity-if-not-exists-hint": "Create a new entity set above if it does not exist.",
                 "entity-name-pattern": "Name pattern",
                 "entity-name-pattern-required": "Name pattern is required",
                 "entity-name-pattern-hint": "Name pattern, use <code>${metaKeyName}</code> to substitute variables from metadata",
@@ -239,6 +240,10 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "check-relation-hint": "Checks existence of relation to specific entity or to any entity based on direction and relation type.",
                 "delete-relation-to-specific-entity": "Delete relation to specific entity",
                 "delete-relation-hint": "Deletes relation from the originator of the incoming message to the specified entity or list of entities based on direction and type.",
+                "remove-current-relations": "Remove current relations",
+                "remove-current-relations-hint": "Removes current relations from the originator of the incoming message based on direction and type.",
+                "change-originator-to-related-entity": "Change originator to related entity",
+                "change-originator-to-related-entity-hint": "Used to process submitted message as a message from another entity(originator).",
                 "start-interval-pattern": "Start interval pattern",
                 "end-interval-pattern": "End interval pattern",
                 "start-interval-pattern-required": "Start interval pattern is required",

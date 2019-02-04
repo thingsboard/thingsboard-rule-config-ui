@@ -57,6 +57,15 @@
     <md-checkbox flex ng-if="configuration.entityType  == 'CUSTOMER' || configuration.entityType  == 'ASSET' || configuration.entityType  == 'DEVICE'" aria-label="{{ 'tb.rulenode.create-entity-if-not-exists' | translate }}"
                  ng-model="configuration.createEntityIfNotExists">{{ 'tb.rulenode.create-entity-if-not-exists' | translate }}
     </md-checkbox>
+    <div class="tb-hint" ng-if="configuration.entityType  == 'CUSTOMER' || configuration.entityType  == 'ASSET' || configuration.entityType  == 'DEVICE'" translate>tb.rulenode.create-entity-if-not-exists-hint</div>
+    <md-checkbox flex  aria-label="{{ 'tb.rulenode.remove-current-relations' | translate }}"
+                 ng-model="configuration.removeCurrentRelations">{{ 'tb.rulenode.remove-current-relations' | translate }}
+    </md-checkbox>
+    <div class="tb-hint" translate>tb.rulenode.remove-current-relations-hint</div>
+    <md-checkbox flex  aria-label="{{ 'tb.rulenode.change-originator-to-related-entity' | translate }}"
+                 ng-model="configuration.changeOriginatorToRelatedEntity">{{ 'tb.rulenode.change-originator-to-related-entity' | translate }}
+    </md-checkbox>
+    <div class="tb-hint" translate>tb.rulenode.change-originator-to-related-entity-hint</div>
     <md-input-container class="md-block">
         <label translate>tb.rulenode.entity-cache-expiration</label>
         <input type="number" step="1" min="0" ng-required="true"
