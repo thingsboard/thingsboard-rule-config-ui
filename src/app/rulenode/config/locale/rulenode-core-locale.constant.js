@@ -243,7 +243,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "remove-current-relations": "Remove current relations",
                 "remove-current-relations-hint": "Removes current relations from the originator of the incoming message based on direction and type.",
                 "change-originator-to-related-entity": "Change originator to related entity",
-                "change-originator-to-related-entity-hint": "Used to process submitted message as a message from another entity(originator).",
+                "change-originator-to-related-entity-hint": "Used to process submitted message as a message from another entity.",
                 "start-interval-pattern": "Start interval pattern",
                 "end-interval-pattern": "End interval pattern",
                 "start-interval-pattern-required": "Start interval pattern is required",
