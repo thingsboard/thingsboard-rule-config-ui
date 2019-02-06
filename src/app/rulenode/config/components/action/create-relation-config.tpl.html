@@ -50,10 +50,14 @@
             <div class="tb-hint" translate>tb.rulenode.entity-type-pattern-hint</div>
         </md-input-container>
     </div>
-    <tb-relation-type-autocomplete hide-label
-                                   ng-model="configuration.relationType"
-                                   tb-required="true">
-    </tb-relation-type-autocomplete>
+    <md-input-container class="md-block" flex style="margin-top: 0px;">
+        <label translate>tb.rulenode.relation-type-pattern</label>
+        <input ng-required="true" name="relationTypePatttern" ng-model="configuration.relationTypePattern"/>
+        <div ng-messages="createRelationConfigForm.relationTypePatttern.$error">
+            <div ng-message="required" translate>tb.rulenode.relation-type-pattern-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.relation-type-pattern-hint</div>
+    </md-input-container>
     <md-checkbox flex ng-if="configuration.entityType  == 'CUSTOMER' || configuration.entityType  == 'ASSET' || configuration.entityType  == 'DEVICE'" aria-label="{{ 'tb.rulenode.create-entity-if-not-exists' | translate }}"
                  ng-model="configuration.createEntityIfNotExists">{{ 'tb.rulenode.create-entity-if-not-exists' | translate }}
     </md-checkbox>

@@ -21,7 +21,7 @@
         {{ 'tb.rulenode.delete-relation-to-specific-entity' | translate }}
     </md-checkbox>
     <div class="tb-hint" translate>tb.rulenode.delete-relation-hint</div>
-    <md-input-container class="md-block" style="min-width: 100px;">
+    <md-input-container class="md-block" style="min-width: 100px;margin-bottom: 38px;">
         <label translate>relation.direction</label>
         <md-select required ng-model="configuration.direction">
             <md-option ng-repeat="direction in types.entitySearchDirection" ng-value="direction">
@@ -46,10 +46,14 @@
             <div class="tb-hint" translate>tb.rulenode.entity-name-pattern-hint</div>
         </md-input-container>
     </div>
-    <tb-relation-type-autocomplete hide-label
-                                   ng-model="configuration.relationType"
-                                   tb-required="true">
-    </tb-relation-type-autocomplete>
+    <md-input-container class="md-block" flex>
+        <label translate>tb.rulenode.relation-type-pattern</label>
+        <input ng-required="true" name="relationTypePatttern" ng-model="configuration.relationTypePattern"/>
+        <div ng-messages="createRelationConfigForm.relationTypePatttern.$error">
+            <div ng-message="required" translate>tb.rulenode.relation-type-pattern-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.relation-type-pattern-hint</div>
+    </md-input-container>
     <md-input-container class="md-block">
         <label translate>tb.rulenode.entity-cache-expiration</label>
         <input type="number" step="1" min="0" ng-required="true"
