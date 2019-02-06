@@ -45,7 +45,9 @@ export default function RestApiCallConfigDirective($compile, ruleNodeTypes) {
     return {
         restrict: "E",
         require: "^ngModel",
-        scope: {},
+        scope: {
+            readonly:'=ngReadonly'
+        },
         link: linker
     };
 }

@@ -147,6 +147,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "endpoint-url-pattern-required": "Endpoint URL pattern is required",
                 "endpoint-url-pattern-hint": "HTTP URL address pattern, use <code>${metaKeyName}</code> to substitute variables from metadata",
                 "request-method": "Request method",
+                "use-simple-client-http-factory": "Use simple client HTTP factory",
                 "headers": "Headers",
                 "headers-hint": "Use <code>${metaKeyName}</code> in header/value fields to substitute variables from metadata",
                 "header": "Header",
