@@ -33,6 +33,11 @@
             </md-option>
         </md-select>
     </md-input-container>
+    <md-checkbox ng-disabled="$root.loading || readonly"
+                 aria-label="{{ 'tb.rulenode.use-simple-client-http-factory' | translate }}"
+                 ng-model="configuration.useSimpleClientHttpFactory">
+        {{ 'tb.rulenode.use-simple-client-http-factory' | translate }}
+    </md-checkbox>
     <label translate class="tb-title">tb.rulenode.headers</label>
     <div class="tb-hint" translate>tb.rulenode.headers-hint</div>
     <tb-kv-map-config
