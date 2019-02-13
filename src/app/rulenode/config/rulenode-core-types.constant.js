@@ -23,6 +23,10 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                 'LAST',
                 'ALL'
             ],
+            samplingOrder: [
+                'ASC',
+                'DESC'
+            ],
             httpRequestType: [
                 'GET',
                 'POST',

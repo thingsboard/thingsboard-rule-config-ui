@@ -43,6 +43,8 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "start-interval-time-unit": "Start Interval Time Unit",
                 "end-interval-time-unit": "End Interval Time Unit",
                 "fetch-mode": "Fetch mode",
+                "order-by": "Order by",
+                "order-by-hint": "Select the configuration parameter 'Order by' to choose telemetry sampling order.",
                 "time-unit-milliseconds": "Milliseconds",
                 "time-unit-seconds": "Seconds",
                 "time-unit-minutes": "Minutes",
