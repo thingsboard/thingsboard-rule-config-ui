@@ -19,7 +19,7 @@
               placeholder="{{'tb.rulenode.latest-timeseries' | translate}}"
               md-separator-keys="separatorKeys">
     </md-chips>
-    <md-input-container style="margin-bottom: 38px; margin-top: 58px">
+    <md-input-container style="margin-bottom: 18px; margin-top: 58px">
         <label translate class="tb-title no-padding">tb.rulenode.fetch-mode</label>
         <md-select required ng-model="configuration.fetchMode">
             <md-option ng-repeat="type in ruleNodeTypes.fetchModeType" ng-value="type">
@@ -27,6 +27,16 @@
             </md-option>
         </md-select>
     </md-input-container>
+    <div class="tb-hint" translate>tb.rulenode.fetch-mode-hint</div>
+    <md-input-container flex ng-if="configuration.fetchMode === 'ALL' ">
+        <label translate class="tb-title no-padding">tb.rulenode.order-by</label>
+        <md-select required ng-model="configuration.orderBy">
+            <md-option ng-repeat="type in ruleNodeTypes.samplingOrder" ng-value="type">
+                {{ type }}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <div class="tb-hint" translate flex ng-if="configuration.fetchMode === 'ALL' ">tb.rulenode.order-by-hint</div>
     <md-checkbox aria-label="{{ 'tb.rulenode.use-metadata-interval-patterns' | translate }}"
                  ng-model="configuration.useMetadataIntervalPatterns">{{ 'tb.rulenode.use-metadata-interval-patterns' |
         translate }}
