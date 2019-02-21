@@ -23,7 +23,8 @@
               readonly="readonly"
               ng-model="configuration.clientAttributeNames"
               placeholder="{{'tb.rulenode.client-attributes' | translate}}"
-              md-separator-keys="separatorKeys">
+              md-separator-keys="separatorKeys"
+              md-add-on-blur="true">
     </md-chips>
     <label translate class="tb-title no-padding">tb.rulenode.shared-attributes</label>
     <md-chips style="padding-bottom: 15px;"
@@ -31,7 +32,8 @@
               readonly="readonly"
               ng-model="configuration.sharedAttributeNames"
               placeholder="{{'tb.rulenode.shared-attributes' | translate}}"
-              md-separator-keys="separatorKeys">
+              md-separator-keys="separatorKeys"
+              md-add-on-blur="true">
     </md-chips>
     <label translate class="tb-title no-padding">tb.rulenode.server-attributes</label>
     <md-chips style="padding-bottom: 15px;"
@@ -39,13 +41,15 @@
               readonly="readonly"
               ng-model="configuration.serverAttributeNames"
               placeholder="{{'tb.rulenode.server-attributes' | translate}}"
-              md-separator-keys="separatorKeys">
+              md-separator-keys="separatorKeys"
+              md-add-on-blur="true">
     </md-chips>
     <label translate class="tb-title no-padding">tb.rulenode.latest-timeseries</label>
     <md-chips ng-required="false"
               readonly="readonly"
               ng-model="configuration.latestTsKeyNames"
               placeholder="{{'tb.rulenode.latest-timeseries' | translate}}"
-              md-separator-keys="separatorKeys">
+              md-separator-keys="separatorKeys"
+              md-add-on-blur="true">
     </md-chips>
 </section>

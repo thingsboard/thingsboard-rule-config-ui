@@ -277,7 +277,8 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "interval-seconds-required": "Interval is required.",
                 "min-interval-seconds-message": "Only 1 second minimum interval is allowed.",
                 "output-timeseries-key-prefix": "Output timeseries key prefix",
-                "output-timeseries-key-prefix-required": "Output timeseries key prefix required."
+                "output-timeseries-key-prefix-required": "Output timeseries key prefix required.",
+                "separator-hint": "You should press \"enter\" to complete field input."
             },
             "key-val": {
                 "key": "Key",
