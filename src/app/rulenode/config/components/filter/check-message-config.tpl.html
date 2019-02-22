@@ -23,16 +23,20 @@
               readonly="readonly"
               ng-model="configuration.messageNames"
               placeholder="{{'tb.rulenode.data-keys' | translate}}"
-              md-separator-keys="separatorKeys">
+              md-separator-keys="separatorKeys"
+              md-add-on-blur="true">
     </md-chips>
+    <div class="tb-hint" translate>tb.rulenode.separator-hint</div>
     <label translate class="tb-title no-padding tb-required">tb.rulenode.metadata-keys</label>
     <md-chips style="padding-bottom: 15px;"
               ng-required="!(configuration.messageNames).length"
               readonly="readonly"
               ng-model="configuration.metadataNames"
               placeholder="{{'tb.rulenode.metadata-keys' | translate}}"
-              md-separator-keys="separatorKeys">
+              md-separator-keys="separatorKeys"
+              md-add-on-blur="true">
     </md-chips>
+    <div class="tb-hint" translate>tb.rulenode.separator-hint</div>
     <md-checkbox aria-label="{{ 'tb.rulenode.check-all-keys' | translate }}"
                  ng-model="configuration.checkAllKeys">{{ 'tb.rulenode.check-all-keys' |
         translate }}
