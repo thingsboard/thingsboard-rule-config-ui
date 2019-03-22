@@ -21,6 +21,7 @@ import RelatedAttributesConfigDirective from './related-attributes-config.direct
 import CustomerAttributesConfigDirective from './customer-attributes-config.directive';
 import TenantAttributesConfigDirective from './tenant-attributes-config.directive';
 import GetTelemetryConfigDirective from './get-telemtry-from-database-config.directive';
+import EntityDetailsConfigDirective from './entity-details-config.directive';
 
 
 export default angular.module('thingsboard.ruleChain.config.enrichment', [])
@@ -31,4 +32,5 @@ export default angular.module('thingsboard.ruleChain.config.enrichment', [])
     .directive('tbEnrichmentNodeCustomerAttributesConfig', CustomerAttributesConfigDirective)
     .directive('tbEnrichmentNodeTenantAttributesConfig', TenantAttributesConfigDirective)
     .directive('tbEnrichmentNodeGetTelemetryFromDatabase',GetTelemetryConfigDirective)
+    .directive('tbEnrichmentNodeEntityDetailsConfig',EntityDetailsConfigDirective)
     .name;

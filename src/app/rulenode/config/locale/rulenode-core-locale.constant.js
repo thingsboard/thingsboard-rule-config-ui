@@ -278,7 +278,17 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "min-interval-seconds-message": "Only 1 second minimum interval is allowed.",
                 "output-timeseries-key-prefix": "Output timeseries key prefix",
                 "output-timeseries-key-prefix-required": "Output timeseries key prefix required.",
-                "separator-hint": "You should press \"enter\" to complete field input."
+                "separator-hint": "You should press \"enter\" to complete field input.",
+                "entity-details": "Enter details",
+                "entity-details-country": "Country",
+                "entity-details-state": "State",
+                "entity-details-zip": "Zip",
+                "entity-details-address": "Address",
+                "entity-details-address2": "Address2",
+                "entity-details-additional-info": "Additional Info",
+                "entity-details-phone": "Phone",
+                "entity-details-email": "Email",
+
             },
             "key-val": {
                 "key": "Key",
