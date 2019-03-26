@@ -242,7 +242,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "use-metadata-interval-patterns-hint": "If selected, rule node use start and end interval patterns from message metadata assuming that intervals are in the milliseconds.",
                 "use-message-alarm-data": "Use message alarm data",
                 "check-all-keys": "Check that all selected keys are present",
-                "check-all-keys-hint": "If selected checks that all specified keys are present in the message data and metadata.",
+                "check-all-keys-hint": "If selected, checks that all specified keys are present in the message data and metadata.",
                 "check-relation-to-specific-entity": "Check relation to specific entity",
                 "check-relation-hint": "Checks existence of relation to specific entity or to any entity based on direction and relation type.",
                 "delete-relation-to-specific-entity": "Delete relation to specific entity",
@@ -279,7 +279,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "output-timeseries-key-prefix": "Output timeseries key prefix",
                 "output-timeseries-key-prefix-required": "Output timeseries key prefix required.",
                 "separator-hint": "You should press \"enter\" to complete field input.",
-                "entity-details": "Enter details",
+                "entity-details": "Select entity details:",
                 "entity-details-country": "Country",
                 "entity-details-state": "State",
                 "entity-details-zip": "Zip",
@@ -288,7 +288,10 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "entity-details-additional-info": "Additional Info",
                 "entity-details-phone": "Phone",
                 "entity-details-email": "Email",
-
+                "add-to-metadata": "Add selected details to message metadata",
+                "add-to-metadata-hint": "If selected, adds the selected details keys to the message metadata instead of message data.",
+                "entity-details-list-empty": "No entity details selected.",
+                "no-entity-details-matching": "No entity details matching were found."
             },
             "key-val": {
                 "key": "Key",

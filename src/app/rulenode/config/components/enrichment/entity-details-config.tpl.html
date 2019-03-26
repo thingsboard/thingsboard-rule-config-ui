@@ -17,4 +17,42 @@
 -->
 <section layout="column">
     <label translate class="tb-title no-padding" class="required">tb.rulenode.entity-details</label>
+    <md-chips readonly="disabled"
+              style="margin-bottom: 28px"
+              id="entityDetailsListChips"
+              ng-required="tbRequired"
+              ng-model="configuration.detailsList"
+              placeholder="{{placeholder}}"
+              secondary-placeholder="{{secondaryPlaceholder}}"
+              md-autocomplete-snap
+              md-require-match="true">
+        <md-autocomplete
+                md-no-cache="true"
+                id="entityDetails"
+                md-selected-item="selectedEntityDetail"
+                md-search-text="entityDetailsSearchText"
+                md-items="item in entityDetailsList"
+                md-item-text="item.name"
+                md-min-length="0"
+                placeholder="{{ (!ruleNodeTypes.entityDetails || !ruleNodeTypes.entityDetails.length) ? placeholder : secondaryPlaceholder }}">
+            <md-item-template>
+                <span md-highlight-text="entityDetailsSearchText" md-highlight-flags="^i">{{item.name}}</span>
+            </md-item-template>
+            <md-not-found>
+                <span translate translate-values='{ entityDetails: entityDetailsSearchText }'>tb.rulenode.no-entity-details-matching</span>
+            </md-not-found>
+        </md-autocomplete>
+        <md-chip-template>
+            <span>
+                <strong>{{$chip.name}}</strong>
+            </span>
+        </md-chip-template>
+    </md-chips>
+    <div class="tb-error-messages" ng-messages="ngModelCtrl.$error" ng-if="inputTouched && tbRequired" role="alert">
+        <div translate ng-message="configuration.detailsList" class="tb-error-message">tb.rulenode.entity-details-list-empty</div>
+    </div>
+    <md-checkbox aria-label="{{ 'tb.rulenode.add-to-metadata' | translate }}" ng-model="configuration.addToMetadata">
+        {{ 'tb.rulenode.add-to-metadata' | translate }}
+    </md-checkbox>
+    <div class="tb-hint" translate>tb.rulenode.add-to-metadata-hint</div>
 </section>

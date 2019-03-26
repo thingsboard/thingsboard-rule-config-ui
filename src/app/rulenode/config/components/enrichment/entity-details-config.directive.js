@@ -21,7 +21,7 @@ import entityDetailsConfigTemplate from './entity-details-config.tpl.html';
 /* eslint-enable import/no-unresolved, import/default */
 
 /*@ngInject*/
-export default function EntityDetailsConfigDirective($compile, ruleNodeTypes) {
+export default function EntityDetailsConfigDirective($compile, ruleNodeTypes, $translate) {
 
     var linker = function (scope, element, attrs, ngModelCtrl) {
         var template = entityDetailsConfigTemplate;
@@ -34,6 +34,15 @@ export default function EntityDetailsConfigDirective($compile, ruleNodeTypes) {
                 ngModelCtrl.$setViewValue(scope.configuration);
             }
         });
+
+        scope.entityDetailsList = [];
+        for (var item in ruleNodeTypes.entityDetails) {
+            var entityDetailsInfo = {};
+            entityDetailsInfo.value = ruleNodeTypes.entityDetails[item];
+            entityDetailsInfo.name = $translate.instant(ruleNodeTypes.entityDetails[item].name) + '';
+            scope.entityDetailsList.push(entityDetailsInfo);
+        }
+
 
         ngModelCtrl.$render = function () {
             scope.configuration = ngModelCtrl.$viewValue;
