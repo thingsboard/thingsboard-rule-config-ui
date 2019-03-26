@@ -30,13 +30,16 @@
                 md-no-cache="true"
                 id="entityDetails"
                 md-selected-item="selectedEntityDetail"
+                md-selected-item-change="selectedItemChange(item)"
                 md-search-text="entityDetailsSearchText"
                 md-items="item in entityDetailsList"
-                md-item-text="item.name"
+                md-item-text="item"
                 md-min-length="0"
                 placeholder="{{ (!ruleNodeTypes.entityDetails || !ruleNodeTypes.entityDetails.length) ? placeholder : secondaryPlaceholder }}">
             <md-item-template>
-                <span md-highlight-text="entityDetailsSearchText" md-highlight-flags="^i">{{item.name}}</span>
+                <span md-highlight-text="entityDetailsSearchText" md-highlight-flags="^i">
+                    {{'tb.rulenode.entity-details-'+item.toLowerCase() | translate}}
+                </span>
             </md-item-template>
             <md-not-found>
                 <span translate translate-values='{ entityDetails: entityDetailsSearchText }'>tb.rulenode.no-entity-details-matching</span>
@@ -44,7 +47,7 @@
         </md-autocomplete>
         <md-chip-template>
             <span>
-                <strong>{{$chip.name}}</strong>
+                <strong>{{'tb.rulenode.entity-details-'+$chip.toLowerCase() | translate}}</strong>
             </span>
         </md-chip-template>
     </md-chips>

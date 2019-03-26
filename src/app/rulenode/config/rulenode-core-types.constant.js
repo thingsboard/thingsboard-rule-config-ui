@@ -63,7 +63,7 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                     value: 'EMAIL'
                 },
                 'ADDITIONAL_INFO': {
-                    name: 'tb.rulenode.entity-details-additional-info',
+                    name: 'tb.rulenode.entity-details-additional_info',
                     value: 'ADDITIONAL_INFO'
                 },
             },

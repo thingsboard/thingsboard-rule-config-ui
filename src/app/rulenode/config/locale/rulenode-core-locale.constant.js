@@ -285,7 +285,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "entity-details-zip": "Zip",
                 "entity-details-address": "Address",
                 "entity-details-address2": "Address2",
-                "entity-details-additional-info": "Additional Info",
+                "entity-details-additional_info": "Additional Info",
                 "entity-details-phone": "Phone",
                 "entity-details-email": "Email",
                 "add-to-metadata": "Add selected details to message metadata",
