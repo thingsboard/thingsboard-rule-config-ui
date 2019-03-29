@@ -35,6 +35,7 @@ import AssignToCustomerConfigDirective from './assign-customer-config.directive'
 import UnAssignToCustomerConfigDirective from './unassign-customer-config.directive';
 import DeleteRelationConfigDirective from './delete-relation-config.directive';
 import CreateRelationConfigDirective from './create-relation-config.directive';
+import saveToCustomTableConfigDirective from './save-to-custom-table-config.directive';
 
 export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeTimeseriesConfig', TimeseriesConfigDirective)
@@ -58,4 +59,5 @@ export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeUnAssignToCustomerConfig', UnAssignToCustomerConfigDirective)
     .directive('tbActionNodeDeleteRelationConfig', DeleteRelationConfigDirective)
     .directive('tbActionNodeCreateRelationConfig', CreateRelationConfigDirective)
+    .directive('tbActionNodeCustomTableConfig', saveToCustomTableConfigDirective)
     .name;

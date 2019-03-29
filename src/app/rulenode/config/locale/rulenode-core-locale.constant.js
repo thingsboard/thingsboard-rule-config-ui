@@ -278,7 +278,14 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "min-interval-seconds-message": "Only 1 second minimum interval is allowed.",
                 "output-timeseries-key-prefix": "Output timeseries key prefix",
                 "output-timeseries-key-prefix-required": "Output timeseries key prefix required.",
-                "separator-hint": "You should press \"enter\" to complete field input."
+                "separator-hint": "You should press \"enter\" to complete field input.",
+                "custom-table-name": "Custom table name",
+                "custom-table-name-required": "Table Name is required",
+                "custom-table-hint": "You should enter the table name without prefix 'cs_tb_'.",
+                "message-field": "Message field",
+                "message-field-required": "Message field is required.",
+                "table-col": "Table column",
+                "table-col-required": "Table column is required."
             },
             "key-val": {
                 "key": "Key",
