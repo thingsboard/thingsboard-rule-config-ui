@@ -43,6 +43,16 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                     value: 'FIFO'
                 }
             },
+            perimeterType: {
+                'CIRCLE': {
+                    name: 'tb.rulenode.perimeter-circle',
+                    value: 'CIRCLE'
+                },
+                'POLYGON': {
+                    name: 'tb.rulenode.perimeter-polygon',
+                    value: 'POLYGON'
+                }
+            },
             timeUnit: {
                 "MILLISECONDS": {
                     value: "MILLISECONDS",
@@ -63,6 +73,28 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                 "DAYS": {
                     value: "DAYS",
                     name: "tb.rulenode.time-unit-days"
+                }
+            },
+            rangeUnit: {
+                "METER": {
+                    value: "METER",
+                    name: "tb.rulenode.range-unit-meter"
+                },
+                "KILOMETER": {
+                    value: "KILOMETER",
+                    name: "tb.rulenode.range-unit-kilometer"
+                },
+                "FOOT": {
+                    value: "FOOT",
+                    name: "tb.rulenode.range-unit-foot"
+                },
+                "MILE": {
+                    value: "MILE",
+                    name: "tb.rulenode.range-unit-mile"
+                },
+                "NAUTICAL_MILE": {
+                    value: "NAUTICAL_MILE",
+                    name: "tb.rulenode.range-unit-nautical-mile"
                 }
             },
             mqttCredentialTypes: {
