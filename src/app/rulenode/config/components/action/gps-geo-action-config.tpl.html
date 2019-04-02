@@ -1,0 +1,145 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section ng-form name="geoActionConfigForm" layout="column">
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.latitude-key-name</label>
+        <input ng-required="true" name="latitudeKeyName" ng-model="configuration.latitudeKeyName"/>
+        <div ng-messages="geoActionConfigForm.latitudeKeyName.$error">
+            <div ng-message="required" translate>tb.rulenode.latitude-key-name-required</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.longitude-key-name</label>
+        <input ng-required="true" name="longitudeKeyName" ng-model="configuration.longitudeKeyName"/>
+        <div ng-messages="geoActionConfigForm.longitudeKeyName.$error">
+            <div ng-message="required" translate>tb.rulenode.longitude-key-name-required</div>
+        </div>
+    </md-input-container>
+    <md-checkbox flex aria-label="{{ 'tb.rulenode.fetch-perimeter-info-from-message-metadata' | translate }}"
+                 ng-model="configuration.fetchPerimeterInfoFromMessageMetadata">{{
+        'tb.rulenode.fetch-perimeter-info-from-message-metadata' | translate }}
+    </md-checkbox>
+    <div layout='row' class="tb-entity-select" ng-if="configuration.fetchPerimeterInfoFromMessageMetadata === false">
+        <md-input-container class="md-block" flex="100">
+            <label translate>tb.rulenode.perimeter-type</label>
+            <md-select required ng-model="configuration.perimeterType" flex>
+                <md-option ng-repeat="type in ruleNodeTypes.perimeterType" ng-value="type.value">
+                    {{ type.name | translate}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div layout="row" layout-wrap ng-if="configuration.perimeterType===ruleNodeTypes.perimeterType.CIRCLE.value && configuration.fetchPerimeterInfoFromMessageMetadata === false">
+        <div layout='column' flex="50">
+            <md-input-container class="md-block" flex layout="column" style="margin-top: 44px;">
+                <label translate>tb.rulenode.circle-center-latitude</label>
+                <input type="number" min="0" step="0.1" ng-required="true" name="centerLatitude"
+                       ng-model="configuration.centerLatitude"/>
+                <div ng-messages="geoActionConfigForm.centerLatitude.$error">
+                    <div ng-message="required" translate>tb.rulenode.circle-center-latitude-required</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout='column' flex="50">
+            <md-input-container class="md-block" flex style="margin-top: 44px;">
+                <label translate>tb.rulenode.circle-center-longitude</label>
+                <input type="number" min="0" step="0.1" ng-required="true" name="centerLongitude"
+                       ng-model="configuration.centerLongitude"/>
+                <div ng-messages="geoActionConfigForm.centerLongitude.$error">
+                    <div ng-message="required" translate>tb.rulenode.circle-center-longitude-required</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout='column' flex="50">
+            <md-input-container class="md-block" style="margin-top: 28px;">
+                <label translate>tb.rulenode.range</label>
+                <input type="number" min="0" step="0.1" ng-required="true" name="range" ng-model="configuration.range"/>
+                <div ng-messages="geoActionConfigForm.range.$error">
+                    <div ng-message="required" translate>tb.rulenode.range-required</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout='column' flex="50">
+            <md-input-container class="md-block" style="margin-top: 28px;">
+                <label translate>tb.rulenode.range-units</label>
+                <md-select required ng-model="configuration.rangeUnit">
+                    <md-option ng-repeat="type in ruleNodeTypes.rangeUnit" ng-value="type.value">
+                        {{ type.name | translate}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+    </div>
+    <div layout="row" layout-wrap ng-if="configuration.perimeterType===ruleNodeTypes.perimeterType.POLYGON.value && configuration.fetchPerimeterInfoFromMessageMetadata === false">
+        <div layout='column' flex="100">
+            <md-input-container class="md-block" style="margin-top: 44px;">
+                <label translate>tb.rulenode.polygon-definition</label>
+                <input ng-required="true" name="polygonsDefinition" ng-model="configuration.polygonsDefinition"/>
+                <div ng-messages="geoActionConfigForm.polygonsDefinition.$error">
+                    <div ng-message="required" translate>tb.rulenode.polygon-definition-required</div>
+                </div>
+                <div class="tb-hint" style="margin-top: 5px;" translate>tb.rulenode.polygon-definition-hint</div>
+            </md-input-container>
+        </div>
+    </div>
+    <div layout="column" layout-gt-sm="row">
+        <md-input-container flex class="md-block tb-time-value" flex>
+            <label translate class="tb-title no-padding">tb.rulenode.min-inside-duration</label>
+            <input required type="number" step="1" min="1" max="2147483647" name="minInsideDuration"
+                   ng-model="configuration.minInsideDuration">
+            <div ng-messages="geoActionConfigForm.minInsideDuration.$error">
+                <div translate ng-message="required">tb.rulenode.min-inside-duration-value-required</div>
+                <div ng-message="min" translate>tb.rulenode.time-value-range</div>
+                <div ng-message="max" translate>tb.rulenode.time-value-range</div>
+            </div>
+        </md-input-container>
+        <md-input-container flex class="md-block tb-time-unit" flex>
+            <label translate class="tb-title no-padding">tb.rulenode.min-inside-duration-time-unit</label>
+            <md-select required name="minInsideDurationTimeUnit"
+                       aria-label="{{ 'tb.rulenode.min-inside-duration-time-unit' | translate }}"
+                       ng-model="configuration.minInsideDurationTimeUnit">
+                <md-option ng-repeat="timeUnit in ruleNodeTypes.timeUnit" ng-value="timeUnit.value">
+                    {{timeUnit.name | translate}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div layout="column" layout-gt-sm="row">
+        <md-input-container flex class="md-block tb-time-value" flex>
+            <label translate class="tb-title no-padding">tb.rulenode.min-outside-duration</label>
+            <input required type="number" step="1" min="1" max="2147483647" name="minOutsideDuration"
+                   ng-model="configuration.minOutsideDuration">
+            <div ng-messages="geoActionConfigForm.minOutsideDuration.$error">
+                <div translate ng-message="required">tb.rulenode.min-outside-duration-value-required</div>
+                <div ng-message="min" translate>tb.rulenode.time-value-range</div>
+                <div ng-message="max" translate>tb.rulenode.time-value-range</div>
+            </div>
+        </md-input-container>
+        <md-input-container flex class="md-block tb-time-unit" flex>
+            <label translate class="tb-title no-padding">tb.rulenode.min-outside-duration-time-unit</label>
+            <md-select required name="minOutsideDurationTimeUnit"
+                       aria-label="{{ 'tb.rulenode.min-outside-duration-time-unit' | translate }}"
+                       ng-model="configuration.minOutsideDurationTimeUnit">
+                <md-option ng-repeat="timeUnit in ruleNodeTypes.timeUnit" ng-value="timeUnit.value">
+                    {{timeUnit.name | translate}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+</section>
