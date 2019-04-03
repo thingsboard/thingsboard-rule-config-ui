@@ -33,6 +33,40 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                 'PUT',
                 'DELETE'
             ],
+            entityDetails: {
+                'COUNTRY': {
+                    name: 'tb.rulenode.entity-details-country',
+                    value: 'COUNTRY'
+                },
+                'STATE': {
+                    name: 'tb.rulenode.entity-details-state',
+                    value: 'STATE'
+                },
+                'ZIP': {
+                    name: 'tb.rulenode.entity-details-zip',
+                    value: 'ZIP'
+                },
+                'ADDRESS': {
+                    name: 'tb.rulenode.entity-details-address',
+                    value: 'ADDRESS'
+                },
+                'ADDRESS2': {
+                    name: 'tb.rulenode.entity-details-address2',
+                    value: 'ADDRESS2'
+                },
+                'PHONE': {
+                    name: 'tb.rulenode.entity-details-phone',
+                    value: 'PHONE'
+                },
+                'EMAIL': {
+                    name: 'tb.rulenode.entity-details-email',
+                    value: 'EMAIL'
+                },
+                'ADDITIONAL_INFO': {
+                    name: 'tb.rulenode.entity-details-additional_info',
+                    value: 'ADDITIONAL_INFO'
+                },
+            },
             sqsQueueType: {
                 'STANDARD': {
                     name: 'tb.rulenode.sqs-queue-standard',
