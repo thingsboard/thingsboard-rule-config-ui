@@ -31,6 +31,7 @@ export default function OriginatorTypeConfigDirective($compile, types) {
             [
                 types.entityType.device,
                 types.entityType.asset,
+                types.entityType.entityView,
                 types.entityType.tenant,
                 types.entityType.customer,
                 types.entityType.user,
