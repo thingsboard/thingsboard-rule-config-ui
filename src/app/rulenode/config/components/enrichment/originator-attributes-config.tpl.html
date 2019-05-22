@@ -17,6 +17,10 @@
 -->
 
 <section layout="column">
+    <md-checkbox aria-label="{{ 'tb.rulenode.tell-failure-if-absent' | translate }}" ng-model="configuration.tellFailureIfAbsent">
+        {{ 'tb.rulenode.tell-failure-if-absent' | translate }}
+    </md-checkbox>
+    <div class="tb-hint" translate>tb.rulenode.tell-failure-if-absent-hint</div>
     <label translate class="tb-title no-padding">tb.rulenode.client-attributes</label>
     <md-chips style="padding-bottom: 15px;"
               ng-required="false"

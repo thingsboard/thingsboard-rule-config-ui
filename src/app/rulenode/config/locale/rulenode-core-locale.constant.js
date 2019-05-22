@@ -327,7 +327,9 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "min-inside-duration-time-unit": "Minimal inside duration time unit",
                 "min-outside-duration": "Minimal outside duration",
                 "min-outside-duration-value-required": "Minimal outside duration is required",
-                "min-outside-duration-time-unit": "Minimal outside duration time unit"
+                "min-outside-duration-time-unit": "Minimal outside duration time unit",
+                "tell-failure-if-absent": "Tell Failure",
+                "tell-failure-if-absent-hint": "If at least one selected key doesn't exist the outbound message will report \"Failure\"."
             },
             "key-val": {
                 "key": "Key",
