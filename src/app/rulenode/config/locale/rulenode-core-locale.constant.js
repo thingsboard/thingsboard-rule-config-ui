@@ -321,13 +321,15 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "range-required": "Range is required.",
                 "polygon-definition": "Polygon definition",
                 "polygon-definition-required": "Polygon definition is required.",
-                "polygon-definition-hint": "Please, use the following format for manual definition of polygon: [[lat1,lon1],[lon2,lon4], ... ,[latN,lonN]].",
+                "polygon-definition-hint": "Please, use the following format for manual definition of polygon: [[lat1,lon1],[lat2,lon2], ... ,[latN,lonN]].",
                 "min-inside-duration": "Minimal inside duration",
                 "min-inside-duration-value-required": "Minimal inside duration is required",
                 "min-inside-duration-time-unit": "Minimal inside duration time unit",
                 "min-outside-duration": "Minimal outside duration",
                 "min-outside-duration-value-required": "Minimal outside duration is required",
-                "min-outside-duration-time-unit": "Minimal outside duration time unit"
+                "min-outside-duration-time-unit": "Minimal outside duration time unit",
+                "tell-failure-if-absent": "Tell Failure",
+                "tell-failure-if-absent-hint": "If at least one selected key doesn't exist the outbound message will report \"Failure\"."
             },
             "key-val": {
                 "key": "Key",
