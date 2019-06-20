@@ -37,6 +37,7 @@ import DeleteRelationConfigDirective from './delete-relation-config.directive';
 import CreateRelationConfigDirective from './create-relation-config.directive';
 import saveToCustomTableConfigDirective from './save-to-custom-table-config.directive';
 import gpsGeoActionConfigDirective from './gps-geo-action-config.directive';
+import PubsubConfigDirective from "./pubsub-config.directive";
 
 export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeTimeseriesConfig', TimeseriesConfigDirective)
@@ -62,4 +63,5 @@ export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeCreateRelationConfig', CreateRelationConfigDirective)
     .directive('tbActionNodeCustomTableConfig', saveToCustomTableConfigDirective)
     .directive('tbActionNodeGpsGeofencingConfig', gpsGeoActionConfigDirective)
+    .directive('tbActionNodePubSubConfig', PubsubConfigDirective)
     .name;
