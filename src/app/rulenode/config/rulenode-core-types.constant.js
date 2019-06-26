@@ -16,6 +16,10 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                 'RELATED': {
                     name: 'tb.rulenode.originator-related',
                     value: 'RELATED'
+                },
+                'ALARM_ORIGINATOR': {
+                    name: 'tb.rulenode.originator-alarm-originator',
+                    value: 'ALARM_ORIGINATOR'
                 }
             },
             fetchModeType:[

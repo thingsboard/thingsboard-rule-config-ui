@@ -17,13 +17,26 @@
 -->
 
 <section ng-form name="msgDelayConfigForm" layout="column">
-    <md-input-container class="md-block">
+    <md-checkbox aria-label="{{ 'tb.rulenode.use-metadata-period-in-seconds-patterns' | translate }}"
+                 ng-model="configuration.useMetadataPeriodInSecondsPatterns">{{ 'tb.rulenode.use-metadata-period-in-seconds-patterns' |
+        translate }}
+    </md-checkbox>
+    <div class="tb-hint" translate>tb.rulenode.use-metadata-period-in-seconds-patterns-hint</div>
+    <md-input-container class="md-block" ng-if="configuration.useMetadataPeriodInSecondsPatterns === undefined || configuration.useMetadataPeriodInSecondsPatterns == false">
         <label translate>tb.rulenode.period-seconds</label>
         <input ng-required="true" type="number" step="1" name="periodInSeconds" ng-model="configuration.periodInSeconds" min="0"/>
         <div ng-messages="msgDelayConfigForm.periodInSeconds.$error" multiple md-auto-hide="false">
             <div ng-message="required" translate>tb.rulenode.period-seconds-required</div>
             <div ng-message="min" translate>tb.rulenode.min-period-0-seconds-message</div>
         </div>
+    </md-input-container>
+    <md-input-container class="md-block" flex ng-if="configuration.useMetadataPeriodInSecondsPatterns === true">
+        <label translate>tb.rulenode.period-in-seconds-pattern</label>
+        <input ng-required="true" name="periodInSecondsPattern" ng-model="configuration.periodInSecondsPattern"/>
+        <div ng-messages="msgDelayConfigForm.periodInSecondsPattern.$error">
+            <div ng-message="required" translate>tb.rulenode.period-in-seconds-pattern-required</div>
+        </div>
+        <div class="tb-hint" translate>tb.rulenode.period-in-seconds-pattern-hint</div>
     </md-input-container>
     <md-input-container class="md-block">
         <label translate>tb.rulenode.max-pending-messages</label>
