@@ -1,0 +1,68 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<section ng-form name="pubsubConfigForm" layout="column">
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.gcp-project-id</label>
+        <input ng-required="true" name="projectId" ng-model="configuration.projectId"/>
+        <div ng-messages="pubsubConfigForm.projectId.$error">
+            <div ng-message="required" translate>tb.rulenode.gcp-project-id-required</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>tb.rulenode.pubsub-topic-name</label>
+        <input ng-required="true" name="topicName" ng-model="configuration.topicName"/>
+        <div ng-messages="pubsubConfigForm.topicName.$error">
+            <div ng-message="required" translate>tb.rulenode.pubsub-topic-name-required</div>
+        </div>
+    </md-input-container>
+    <div class="tb-container" ng-class="configuration.serviceAccountKeyFileName ? 'ng-valid' : 'ng-invalid'">
+        <label class="tb-label" translate>tb.rulenode.gcp-service-account-key</label>
+        <div flow-init="{singleFile:true}" flow-file-added="serviceAccountFileAdded($file)"
+             class="tb-file-select-container">
+            <div class="tb-file-clear-container">
+                <md-button ng-click="clearServiceAccountFile()" class="tb-file-clear-btn md-icon-button md-primary"
+                           aria-label="{{ 'action.remove' | translate }}">
+                    <md-tooltip md-direction="top">
+                        {{ 'action.remove' | translate }}
+                    </md-tooltip>
+                    <md-icon aria-label="{{ 'action.remove' | translate }}" class="material-icons">close</md-icon>
+                </md-button>
+            </div>
+            <div class="alert tb-flow-drop" flow-drop>
+                <label for="serviceAccountKeySelect" translate>tb.rulenode.drop-file</label>
+                <input class="file-input" flow-btn id="serviceAccountKeySelect">
+            </div>
+        </div>
+    </div>
+    <div class="dropdown-messages">
+        <div ng-if="!configuration.serviceAccountKeyFileName" class="tb-error-message" translate>tb.rulenode.no-file</div>
+        <div ng-if="configuration.serviceAccountKeyFileName">{{configuration.serviceAccountKeyFileName}}</div>
+    </div>
+    <label translate class="tb-title">tb.rulenode.message-attributes</label>
+    <div class="tb-hint" translate>tb.rulenode.message-attributes-hint</div>
+    <tb-kv-map-config
+            ng-model="configuration.messageAttributes"
+            ng-required="false"
+            key-text="'tb.rulenode.name'"
+            key-required-text="'tb.rulenode.name-required'"
+            val-text="'tb.rulenode.value'"
+            val-required-text="'tb.rulenode.value-required'">
+    </tb-kv-map-config>
+
+</section>
