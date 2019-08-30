@@ -38,6 +38,10 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                 'DELETE'
             ],
             entityDetails: {
+                'TITLE': {
+                    name: 'tb.rulenode.entity-details-country',
+                    value: 'TITLE'
+                },
                 'COUNTRY': {
                     name: 'tb.rulenode.entity-details-country',
                     value: 'COUNTRY'
