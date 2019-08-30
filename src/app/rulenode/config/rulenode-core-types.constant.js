@@ -39,7 +39,7 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
             ],
             entityDetails: {
                 'TITLE': {
-                    name: 'tb.rulenode.entity-details-country',
+                    name: 'tb.rulenode.entity-details-title',
                     value: 'TITLE'
                 },
                 'COUNTRY': {
