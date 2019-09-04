@@ -51,9 +51,8 @@
         </div>
         <div class="tb-hint" translate>tb.rulenode.subject-template-hint</div>
     </md-input-container>
-    <md-checkbox flex aria-label="{{ \'tb.rulenode.html-content\' | translate }}"
-    			 ng-model=configuration.htmlContent>
-    	{{ \'tb.rulenode.html-content\' | translate }}
+    <md-checkbox aria-label="{{ 'tb.rulenode.html-content' | translate }}"
+                 ng-model="configuration.htmlContent">{{ 'tb.rulenode.html-content' | translate }}
     </md-checkbox>
     <md-input-container class="md-block">
         <label translate>tb.rulenode.body-template</label>
