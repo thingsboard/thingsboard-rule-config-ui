@@ -42,6 +42,8 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "end-interval": "End Interval",
                 "start-interval-time-unit": "Start Interval Time Unit",
                 "end-interval-time-unit": "End Interval Time Unit",
+                "delete-all-data": "Delete all data for keys",
+                "delete-all-data-hint": "If selected, all data for chosen keys are deleted regardless of specified time range",                
                 "fetch-mode": "Fetch mode",
                 "fetch-mode-hint": "If selected fetch mode 'ALL'  you able to choose telemetry sampling order.",
                 "order-by": "Order by",
