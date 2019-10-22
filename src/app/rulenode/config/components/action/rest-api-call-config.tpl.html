@@ -48,4 +48,20 @@
             val-text="'tb.rulenode.value'"
             val-required-text="'tb.rulenode.value-required'">
     </tb-kv-map-config>
+    <md-checkbox style="line-height: 50px" ng-disabled="$root.loading || readonly"
+                 aria-label="{{ 'tb.rulenode.use-redis-queue' | translate }}"
+                 ng-model="configuration.useRedisQueueForMsgPersistence">
+        {{ 'tb.rulenode.use-redis-queue' | translate }}
+    </md-checkbox>
+    <div layout="column" ng-if="configuration.useRedisQueueForMsgPersistence">
+        <md-checkbox ng-disabled="$root.loading || readonly"
+                     aria-label="{{ 'tb.rulenode.trim-redis-queue' | translate }}"
+                     ng-model="configuration.trimQueue">
+            {{ 'tb.rulenode.trim-redis-queue' | translate }}
+        </md-checkbox>
+        <md-input-container class="md-block">
+            <label translate>tb.rulenode.redis-queue-max-size</label>
+            <input type="number" step="1" name="redisQueueMaxSize" ng-model="configuration.maxQueueSize" min="0"/>
+        </md-input-container>
+    </div>
 </section>

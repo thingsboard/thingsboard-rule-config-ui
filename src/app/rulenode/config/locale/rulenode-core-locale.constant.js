@@ -342,7 +342,10 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "min-outside-duration-value-required": "Minimal outside duration is required",
                 "min-outside-duration-time-unit": "Minimal outside duration time unit",
                 "tell-failure-if-absent": "Tell Failure",
-                "tell-failure-if-absent-hint": "If at least one selected key doesn't exist the outbound message will report \"Failure\"."
+                "tell-failure-if-absent-hint": "If at least one selected key doesn't exist the outbound message will report \"Failure\".",
+                "use-redis-queue": "Use redis queue for message persistence",
+                "trim-redis-queue": "Trim redis queue",
+                "redis-queue-max-size": "Redis queue max size"
             },
             "key-val": {
                 "key": "Key",
