@@ -37,6 +37,11 @@
         </md-select>
     </md-input-container>
     <div class="tb-hint" translate flex ng-if="configuration.fetchMode === 'ALL' ">tb.rulenode.order-by-hint</div>
+    <md-input-container style="margin-bottom: 0px" flex ng-if="configuration.fetchMode === 'ALL' ">
+        <label translate class="tb-title no-padding">tb.rulenode.limit</label>
+        <input required type="number" step="1" ng-model="configuration.limit" min="2" max="1000"/>
+    </md-input-container>
+    <div class="tb-hint" translate flex ng-if="configuration.fetchMode === 'ALL' ">tb.rulenode.limit-hint</div>
     <md-checkbox aria-label="{{ 'tb.rulenode.use-metadata-interval-patterns' | translate }}"
                  ng-model="configuration.useMetadataIntervalPatterns">{{ 'tb.rulenode.use-metadata-interval-patterns' |
         translate }}
