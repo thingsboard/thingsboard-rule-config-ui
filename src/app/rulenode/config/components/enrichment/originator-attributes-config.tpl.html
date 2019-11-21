@@ -56,4 +56,10 @@
               md-separator-keys="separatorKeys"
               md-add-on-blur="true">
     </md-chips>
+    <div style="margin-top: 20px;">
+        <md-checkbox aria-label="{{ 'tb.rulenode.get-latest-value-with-ts' | translate }}" ng-model="configuration.getLatestValueWithTs">
+            {{ 'tb.rulenode.get-latest-value-with-ts' | translate }}
+        </md-checkbox>
+        <div class="tb-hint" translate>tb.rulenode.get-latest-value-with-ts-hint</div>
+    </div>
 </section>

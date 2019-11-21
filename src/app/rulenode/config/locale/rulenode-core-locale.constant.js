@@ -343,6 +343,8 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "min-outside-duration-time-unit": "Minimal outside duration time unit",
                 "tell-failure-if-absent": "Tell Failure",
                 "tell-failure-if-absent-hint": "If at least one selected key doesn't exist the outbound message will report \"Failure\".",
+                "get-latest-value-with-ts": "Fetch Latest telemetry with Timestamp",
+                "get-latest-value-with-ts-hint": "If selected, latest telemetry values will be added to the outbound message metadata with timestamp, e.g: \"temp\": \"{\\\"ts\\\":1574329385897,\\\"value\\\":42}\",",
                 "use-redis-queue": "Use redis queue for message persistence",
                 "trim-redis-queue": "Trim redis queue",
                 "redis-queue-max-size": "Redis queue max size"
