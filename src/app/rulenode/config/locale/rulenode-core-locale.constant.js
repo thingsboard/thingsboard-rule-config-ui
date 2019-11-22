@@ -46,6 +46,8 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "fetch-mode-hint": "If selected fetch mode 'ALL'  you able to choose telemetry sampling order.",
                 "order-by": "Order by",
                 "order-by-hint": "Select to choose telemetry sampling order.",
+                "limit": "Limit",
+                "limit-hint": "Min limit value is 2, max - 1000. In case you want to fetch a single entry, select fetch mode 'FIRST' or 'LAST'.",
                 "time-unit-milliseconds": "Milliseconds",
                 "time-unit-seconds": "Seconds",
                 "time-unit-minutes": "Minutes",
