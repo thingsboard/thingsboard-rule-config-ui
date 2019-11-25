@@ -38,6 +38,16 @@
                  ng-model="configuration.useSimpleClientHttpFactory">
         {{ 'tb.rulenode.use-simple-client-http-factory' | translate }}
     </md-checkbox>
+    <md-input-container flex ng-if="!configuration.useSimpleClientHttpFactory">
+        <label translate>tb.rulenode.read-timeout</label>
+        <input type="number" step="1" ng-model="configuration.readTimeoutMs" min="0"/>
+        <div class="tb-hint" translate>tb.rulenode.read-timeout-hint</div>
+    </md-input-container>
+    <md-input-container>
+        <label translate>tb.rulenode.max-parallel-requests-count</label>
+        <input type="number" step="1" ng-model="configuration.maxParallelRequestsCount" min="0"/>
+        <div class="tb-hint" translate>tb.rulenode.max-parallel-requests-count-hint</div>
+    </md-input-container>
     <label translate class="tb-title">tb.rulenode.headers</label>
     <div class="tb-hint" translate>tb.rulenode.headers-hint</div>
     <tb-kv-map-config
