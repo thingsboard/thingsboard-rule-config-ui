@@ -37,6 +37,9 @@ export default function CreateAlarmConfigDirective($compile, $translate, types, 
 
         ngModelCtrl.$render = function () {
             scope.configuration = ngModelCtrl.$viewValue;
+            if(!scope.configuration.hasOwnProperty("relationTypes")) {
+                scope.configuration.relationTypes = [];
+            }
         };
 
         scope.testDetailsBuildJs = function($event) {

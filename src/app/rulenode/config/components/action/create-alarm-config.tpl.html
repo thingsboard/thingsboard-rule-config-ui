@@ -54,9 +54,19 @@
             </div>
         </md-input-container>
     </section>
-    <section layout="column" layout-gt-sm="row" ng-if="!configuration.useMessageAlarmData">
-    <md-checkbox aria-label="{{ 'tb.rulenode.propagate' | translate }}"
-                 ng-model="configuration.propagate">{{ 'tb.rulenode.propagate' | translate }}
-    </md-checkbox>
+    <section layout="column" ng-if="!configuration.useMessageAlarmData">
+        <md-checkbox aria-label="{{ 'tb.rulenode.propagate' | translate }}"
+                     ng-model="configuration.propagate">{{ 'tb.rulenode.propagate' | translate }}
+        </md-checkbox>
+        <div ng-if="configuration.propagate">
+            <label translate class="tb-title no-padding">tb.rulenode.relation-types-list</label>
+            <md-chips ng-required="false"
+                      readonly="readonly"
+                      ng-model="configuration.relationTypes"
+                      placeholder="{{'tb.rulenode.relation-types-list' | translate}}"
+                      md-separator-keys="separatorKeys">
+            </md-chips>
+        </div>
+        <div class="tb-hint" style="padding-top: 2px;" ng-if="configuration.propagate" translate>tb.rulenode.relation-types-list-hint</div>
     </section>
 </section>
