@@ -77,6 +77,8 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "relation-type-pattern": "Relation type pattern",
                 "relation-type-pattern-hint": "Relation type pattern, use <code>${metaKeyName}</code> to substitute variables from metadata",
                 "relation-type-pattern-required": "Relation type pattern is required",
+                "relation-types-list": "Relation types to propagate",
+                "relation-types-list-hint": "If Propagate relation types are not selected, alarms will be propagated without filtering by relation type.",
                 "unlimited-level": "Unlimited level",
                 "latest-telemetry": "Latest telemetry",
                 "attr-mapping": "Attributes mapping",
