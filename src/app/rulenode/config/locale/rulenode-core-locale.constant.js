@@ -288,6 +288,8 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "enter-username": "Enter username",
                 "enter-password": "Enter password",
                 "enable-tls": "Enable TLS",
+                "tls-version" : "TLS version",
+                "enter-tls-version" : "Enter TLS version",
                 "min-period-0-seconds-message": "Only 0 second minimum period is allowed.",
                 "max-pending-messages": "Maximum pending messages",
                 "max-pending-messages-required": "Maximum pending messages is required.",
