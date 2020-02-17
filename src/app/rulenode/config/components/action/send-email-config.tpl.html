@@ -63,9 +63,12 @@
                      aria-label="{{ 'tb.rulenode.enable-tls' | translate }}" ng-model="configuration.enableTls">{{ 'tb.rulenode.enable-tls' | translate }}</md-checkbox>
         <md-input-container class="md-block" ng-if="configuration.enableTls">
             <label translate>tb.rulenode.tls-version</label>
-            <input name="tlsVersion" placeholder="{{ 'tb.rulenode.enter-tls-version' | translate }}" ng-model="configuration.tlsVersion">
+            <md-select ng-disabled="$root.loading || readonly" ng-model="configuration.tlsVersion">
+                <md-option ng-repeat="tlsVersion in tlsVersions" value="{{tlsVersion}}">
+                    {{tlsVersion}}
+                </md-option>
+            </md-select>
         </md-input-container>
-
         <md-input-container class="md-block">
             <label translate>tb.rulenode.username</label>
             <input name="username" placeholder="{{ 'tb.rulenode.enter-username' | translate }}" ng-model="configuration.username">

@@ -29,6 +29,8 @@ export default function SendEmailConfigDirective($compile) {
 
         scope.smtpProtocols = ['smtp', 'smtps'];
 
+        scope.tlsVersions = ['TLSv1.0', 'TLSv1.1', 'TLSv1.2', 'TLSv1.3'];
+
         scope.$watch('configuration', function (newConfiguration, oldConfiguration) {
             if (!angular.equals(newConfiguration, oldConfiguration)) {
                 ngModelCtrl.$setViewValue(scope.configuration);
