@@ -17,6 +17,9 @@
 -->
 
 <section layout="column">
+    <md-checkbox ng-model="query.fetchLastLevelOnly" aria-label="{{ 'relation.last-level-relation' | translate}}">
+        {{ 'relation.last-level-relation' | translate}}
+    </md-checkbox>
     <div layout="row">
         <md-input-container class="md-block" style="min-width: 100px;">
             <label translate>relation.direction</label>
