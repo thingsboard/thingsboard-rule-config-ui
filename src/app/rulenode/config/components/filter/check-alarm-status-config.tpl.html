@@ -1,0 +1,48 @@
+<!--
+
+    Copyright © 2016-2018 The Thingsboard Authors
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<section layout="column">
+    <label translate class="tb-title no-padding"
+           class="{'tb-required': required}">tb.rulenode.alarm-statuses-filter</label>
+    <md-chips readonly="readonly"
+              id="alarmStatusListChips"
+              ng-required="required"
+              ng-model="configuration.alarmStatusList"
+              md-autocomplete-snap
+              md-require-match="true">
+        <md-autocomplete
+                md-no-cache="true"
+                id="alarmStatus"
+                md-selected-item="selectedAlarmStatus"
+                md-selected-item-change="selectedItemChange(item)"
+                md-search-text="alarmStatusSearchText"
+                md-items="item in getAlarmStatusList()"
+                md-item-text="item"
+                md-min-length="0"
+                placeholder="{{'alarm.alarm-status' | translate }}">
+            <span>{{'alarm.display-status.' + item | translate}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+            <span>{{'alarm.display-status.' + $chip | translate}}</span>
+        </md-chip-template>
+    </md-chips>
+    <div class="tb-error-messages" ng-messages="ngModelCtrl.$error" role="alert">
+        <div translate ng-message="configuration.alarmStatusList" class="tb-error-message">
+            tb.rulenode.alarm-statuses-required
+        </div>
+    </div>
+</section>
