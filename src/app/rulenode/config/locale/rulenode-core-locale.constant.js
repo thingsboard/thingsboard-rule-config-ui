@@ -133,6 +133,8 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "alarm-type-required": "Alarm type is required.",
                 "alarm-severity": "Alarm severity",
                 "alarm-severity-required": "Alarm severity is required",
+                "alarm-statuses-filter": "Alarm statuses filter",
+                "alarm-statuses-required": "Alarm statuses is required",
                 "propagate": "Propagate",
                 "condition": "Condition",
                 "details": "Details",
