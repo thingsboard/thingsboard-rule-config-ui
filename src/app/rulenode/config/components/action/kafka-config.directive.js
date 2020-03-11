@@ -21,13 +21,14 @@ import kafkaConfigTemplate from './kafka-config.tpl.html';
 /* eslint-enable import/no-unresolved, import/default */
 
 /*@ngInject*/
-export default function KafkaConfigDirective($compile) {
+export default function KafkaConfigDirective($compile, ruleNodeTypes) {
 
     var linker = function (scope, element, attrs, ngModelCtrl) {
         var template = kafkaConfigTemplate;
         element.html(template);
 
         scope.ackValues = ["all", "-1", "0", "1"];
+        scope.ruleNodeTypes = ruleNodeTypes;
 
         scope.$watch('configuration', function (newConfiguration, oldConfiguration) {
             if (!angular.equals(newConfiguration, oldConfiguration)) {

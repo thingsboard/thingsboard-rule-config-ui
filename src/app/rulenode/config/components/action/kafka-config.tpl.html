@@ -90,4 +90,18 @@
             val-text="'tb.rulenode.value'"
             val-required-text="'tb.rulenode.value-required'">
     </tb-kv-map-config>
+    <md-checkbox flex style="margin-top: 18px;" aria-label="{{ 'tb.rulenode.add-metadata-key-values-as-kafka-headers' | translate }}"
+                 ng-model="configuration.addMetadataKeyValuesAsKafkaHeaders">{{ 'tb.rulenode.add-metadata-key-values-as-kafka-headers' | translate }}
+    </md-checkbox>
+    <div class="tb-hint" translate>tb.rulenode.add-metadata-key-values-as-kafka-headers-hint</div>
+    <md-input-container flex class="md-block" flex ng-if="configuration.addMetadataKeyValuesAsKafkaHeaders == true">
+        <label translate class="tb-title">tb.rulenode.charset-encoding</label>
+        <md-select required name="addMetadataKeyValuesAsKafkaHeaders"
+                   aria-label="{{ 'tb.rulenode.charset-encoding' | translate }}"
+                   ng-model="configuration.kafkaHeadersCharset">
+            <md-option ng-repeat="charset in ruleNodeTypes.toBytesStandartCharsetTypes" ng-value="charset.value">
+                {{charset.name | translate}}
+            </md-option>
+        </md-select>
+    </md-input-container>
 </section>

@@ -152,6 +152,32 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                     value: "cert.PEM",
                     name: "tb.rulenode.credentials-pem"
                 }
+            },
+            toBytesStandartCharsetTypes: {
+                "US-ASCII":  {
+                    value: "US-ASCII",
+                    name: "tb.rulenode.charset-us-ascii"
+                },
+                "ISO-8859-1": {
+                    value: "ISO-8859-1",
+                    name: "tb.rulenode.charset-iso-8859-1"
+                },
+                'UTF-8': {
+                    value: "UTF-8",
+                    name: "tb.rulenode.charset-utf-8"
+                },
+                'UTF-16BE': {
+                    value: "UTF-16BE",
+                    name: "tb.rulenode.charset-utf-16be"
+                },
+                'UTF-16LE': {
+                    value: "UTF-16LE",
+                    name: "tb.rulenode.charset-utf-16le"
+                },
+                'UTF-16': {
+                    value: "UTF-16",
+                    name: "tb.rulenode.charset-utf-16"
+                }
             }
         }
     ).name;
