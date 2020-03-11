@@ -38,6 +38,9 @@ export default function KafkaConfigDirective($compile, ruleNodeTypes) {
 
         ngModelCtrl.$render = function () {
             scope.configuration = ngModelCtrl.$viewValue;
+            if(!scope.configuration.hasOwnProperty("kafkaHeadersCharset")) {
+                scope.configuration.kafkaHeadersCharset = "UTF-8";
+            }
         };
 
         $compile(element.contents())(scope);
