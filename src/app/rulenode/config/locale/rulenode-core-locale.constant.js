@@ -368,7 +368,8 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "charset-utf-8": "UTF-8",
                 "charset-utf-16be": "UTF-16BE",
                 "charset-utf-16le": "UTF-16LE",
-                "charset-utf-16": "UTF-16"
+                "charset-utf-16": "UTF-16",
+                "select-queue-hint": "The queue name can be selected from a drop-down list or add a custom name."
             },
             "key-val": {
                 "key": "Key",
