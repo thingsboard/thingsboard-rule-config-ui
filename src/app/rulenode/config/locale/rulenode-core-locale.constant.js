@@ -298,6 +298,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "proxy-port-range": "Proxy port should be in a range from 1 to 65535.",
                 "proxy-user": "Proxy user",
                 "proxy-password": "Proxy password",
+                "proxy-type": "Proxy type",
                 "tls-version" : "TLS version",
                 "min-period-0-seconds-message": "Only 0 second minimum period is allowed.",
                 "max-pending-messages": "Maximum pending messages",
