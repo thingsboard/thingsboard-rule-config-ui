@@ -28,6 +28,7 @@ export default function RestApiCallConfigDirective($compile, ruleNodeTypes) {
         element.html(template);
 
         scope.ruleNodeTypes = ruleNodeTypes;
+        scope.proxyTypes = ['HTTP', 'SOCKS'];
 
         scope.$watch('configuration', function (newConfiguration, oldConfiguration) {
             if (!angular.equals(newConfiguration, oldConfiguration)) {
