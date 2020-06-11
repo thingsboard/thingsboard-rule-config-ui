@@ -34,11 +34,54 @@
         </md-select>
     </md-input-container>
     <md-checkbox ng-disabled="$root.loading || readonly"
+                 aria-label="{{ 'tb.rulenode.enable-proxy' | translate }}"
+                 ng-model="configuration.enableProxy">
+        {{ 'tb.rulenode.enable-proxy' | translate }}
+    </md-checkbox>
+    <md-checkbox ng-disabled="disableUseSimpleClientHttpFactory()"
                  aria-label="{{ 'tb.rulenode.use-simple-client-http-factory' | translate }}"
                  ng-model="configuration.useSimpleClientHttpFactory">
         {{ 'tb.rulenode.use-simple-client-http-factory' | translate }}
     </md-checkbox>
-    <md-input-container flex ng-if="!configuration.useSimpleClientHttpFactory">
+    <div ng-if="configuration.enableProxy">
+        <md-input-container class="md-block" >
+            <label translate>tb.rulenode.proxy-type</label>
+            <md-select ng-disabled="$root.loading || readonly" ng-model="configuration.proxyType">
+                <md-option ng-repeat="proxyType in proxyTypes" value="{{proxyType}}">
+                    {{proxyType}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex="100" flex-gt-sm="60">
+                <label translate>tb.rulenode.proxy-host</label>
+                <input ng-required="true" name="proxyHost" ng-model="configuration.proxyHost">
+                <div ng-messages="sendEmailConfigForm.proxyHost.$error">
+                    <div translate ng-message="required">tb.rulenode.proxy-host-required</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex="100" flex-gt-sm="40">
+                <label translate>tb.rulenode.proxy-port</label>
+                <input type="number" step="1" min="1" max="65535" ng-required="true"
+                       name="proxyPort" ng-model="configuration.proxyPort">
+                <div ng-messages="sendEmailConfigForm.proxyPort.$error">
+                    <div translate ng-message="required">tb.rulenode.proxy-port-required</div>
+                    <div translate ng-message="min">tb.rulenode.proxy-port-range</div>
+                    <div translate ng-message="max">tb.rulenode.proxy-port-range</div>
+                </div>
+            </md-input-container>
+        </div>
+        <md-input-container class="md-block">
+            <label translate>tb.rulenode.proxy-user</label>
+            <input name="proxyUser" ng-model="configuration.proxyUser">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label translate>tb.rulenode.proxy-password</label>
+            <input name="proxyPassword" ng-model="configuration.proxyPassword">
+        </md-input-container>
+    </div>
+
+    <md-input-container flex ng-if="!configuration.useSimpleClientHttpFactory || configuration.enableProxy">
         <label translate>tb.rulenode.read-timeout</label>
         <input type="number" step="1" ng-model="configuration.readTimeoutMs" min="0"/>
         <div class="tb-hint" translate>tb.rulenode.read-timeout-hint</div>
@@ -48,42 +91,6 @@
         <input type="number" step="1" ng-model="configuration.maxParallelRequestsCount" min="0"/>
         <div class="tb-hint" translate>tb.rulenode.max-parallel-requests-count-hint</div>
     </md-input-container>
-    <div ng-if="configuration.useSimpleClientHttpFactory">
-        <md-checkbox ng-disabled="$root.loading || readonly"
-                     aria-label="{{ 'tb.rulenode.enable-proxy' | translate }}"
-                     ng-model="configuration.enableProxy">
-            {{ 'tb.rulenode.enable-proxy' | translate }}
-        </md-checkbox>
-        <div ng-if="configuration.enableProxy">
-            <md-input-container class="md-block" >
-                <label translate>tb.rulenode.proxy-type</label>
-                <md-select ng-disabled="$root.loading || readonly" ng-model="configuration.proxyType">
-                    <md-option ng-repeat="proxyType in proxyTypes" value="{{proxyType}}">
-                        {{proxyType}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex="100" flex-gt-sm="60">
-                    <label translate>tb.rulenode.proxy-host</label>
-                    <input ng-required="true" name="proxyHost" ng-model="configuration.proxyHost">
-                    <div ng-messages="sendEmailConfigForm.proxyHost.$error">
-                        <div translate ng-message="required">tb.rulenode.proxy-host-required</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-block" flex="100" flex-gt-sm="40">
-                    <label translate>tb.rulenode.proxy-port</label>
-                    <input type="number" step="1" min="1" max="65535" ng-required="true"
-                           name="proxyPort" ng-model="configuration.proxyPort">
-                    <div ng-messages="sendEmailConfigForm.proxyPort.$error">
-                        <div translate ng-message="required">tb.rulenode.proxy-port-required</div>
-                        <div translate ng-message="min">tb.rulenode.proxy-port-range</div>
-                        <div translate ng-message="max">tb.rulenode.proxy-port-range</div>
-                    </div>
-                </md-input-container>
-            </div>
-        </div>
-    </div>
     <label translate class="tb-title">tb.rulenode.headers</label>
     <div class="tb-hint" translate>tb.rulenode.headers-hint</div>
     <tb-kv-map-config

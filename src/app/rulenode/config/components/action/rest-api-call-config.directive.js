@@ -30,6 +30,17 @@ export default function RestApiCallConfigDirective($compile, ruleNodeTypes) {
         scope.ruleNodeTypes = ruleNodeTypes;
         scope.proxyTypes = ['HTTP', 'SOCKS'];
 
+        scope.disableUseSimpleClientHttpFactory = function() {
+            if (scope.$root.loading || scope.readonly) {
+                return true;
+            } else {
+                if (scope.configuration.enableProxy) {
+                    scope.configuration.useSimpleClientHttpFactory = true;
+                }
+                return scope.configuration.enableProxy;
+            }
+        };
+
         scope.$watch('configuration', function (newConfiguration, oldConfiguration) {
             if (!angular.equals(newConfiguration, oldConfiguration)) {
                 ngModelCtrl.$setViewValue(scope.configuration);
