@@ -38,20 +38,12 @@
                  ng-model="configuration.enableProxy">
         {{ 'tb.rulenode.enable-proxy' | translate }}
     </md-checkbox>
-    <md-checkbox ng-disabled="disableUseSimpleClientHttpFactory()"
+    <md-checkbox ng-disabled="($root.loading || readonly) ? true : configuration.enableProxy"
                  aria-label="{{ 'tb.rulenode.use-simple-client-http-factory' | translate }}"
                  ng-model="configuration.useSimpleClientHttpFactory">
         {{ 'tb.rulenode.use-simple-client-http-factory' | translate }}
     </md-checkbox>
     <div ng-if="configuration.enableProxy">
-        <md-input-container class="md-block" >
-            <label translate>tb.rulenode.proxy-type</label>
-            <md-select ng-disabled="$root.loading || readonly" ng-model="configuration.proxyType">
-                <md-option ng-repeat="proxyType in proxyTypes" value="{{proxyType}}">
-                    {{proxyType}}
-                </md-option>
-            </md-select>
-        </md-input-container>
         <div layout-gt-sm="row">
             <md-input-container class="md-block" flex="100" flex-gt-sm="60">
                 <label translate>tb.rulenode.proxy-host</label>
