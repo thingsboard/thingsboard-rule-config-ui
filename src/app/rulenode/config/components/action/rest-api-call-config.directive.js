@@ -29,6 +29,8 @@ export default function RestApiCallConfigDirective($compile, ruleNodeTypes) {
 
         scope.ruleNodeTypes = ruleNodeTypes;
 
+        scope.proxySchemes = ['http', 'https'];
+
         scope.$watch('configuration', function (newConfiguration, oldConfiguration) {
             if (!angular.equals(newConfiguration, oldConfiguration)) {
                 ngModelCtrl.$setViewValue(scope.configuration);

@@ -38,41 +38,57 @@
                  ng-model="configuration.enableProxy">
         {{ 'tb.rulenode.enable-proxy' | translate }}
     </md-checkbox>
-    <md-checkbox ng-disabled="($root.loading || readonly) ? true : configuration.enableProxy"
+    <md-checkbox ng-disabled="$root.loading || readonly"
+                 ng-if="!configuration.enableProxy"
                  aria-label="{{ 'tb.rulenode.use-simple-client-http-factory' | translate }}"
                  ng-model="configuration.useSimpleClientHttpFactory">
         {{ 'tb.rulenode.use-simple-client-http-factory' | translate }}
     </md-checkbox>
     <div ng-if="configuration.enableProxy">
-        <div layout-gt-sm="row">
-            <md-input-container class="md-block" flex="100" flex-gt-sm="60">
-                <label translate>tb.rulenode.proxy-host</label>
-                <input ng-required="true" name="proxyHost" ng-model="configuration.proxyHost">
-                <div ng-messages="sendEmailConfigForm.proxyHost.$error">
-                    <div translate ng-message="required">tb.rulenode.proxy-host-required</div>
-                </div>
+        <md-checkbox ng-disabled="$root.loading || readonly"
+                     aria-label="{{ 'tb.rulenode.use-system-proxy-properties' | translate }}"
+                     ng-model="configuration.useSystemProxyProperties">
+            {{ 'tb.rulenode.use-system-proxy-properties' | translate }}
+        </md-checkbox>
+        <div  ng-if="!configuration.useSystemProxyProperties">
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex="100" flex-gt-sm="10">
+                    <label translate>tb.rulenode.proxy-scheme</label>
+                    <md-select ng-disabled="$root.loading || readonly" ng-model="configuration.proxyScheme">
+                        <md-option ng-repeat="proxyScheme in proxySchemes" value="{{proxyScheme}}">
+                            {{proxyScheme}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex="100" flex-gt-sm="50">
+                    <label translate>tb.rulenode.proxy-host</label>
+                    <input ng-required="true" name="proxyHost" ng-model="configuration.proxyHost">
+                    <div ng-messages="restApiCallConfigForm.proxyHost.$error">
+                        <div translate ng-message="required">tb.rulenode.proxy-host-required</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex="100" flex-gt-sm="40">
+                    <label translate>tb.rulenode.proxy-port</label>
+                    <input type="number" step="1" min="1" max="65535" ng-required="true"
+                           name="proxyPort" ng-model="configuration.proxyPort">
+                    <div ng-messages="restApiCallConfigForm.proxyPort.$error">
+                        <div translate ng-message="required">tb.rulenode.proxy-port-required</div>
+                        <div translate ng-message="min">tb.rulenode.proxy-port-range</div>
+                        <div translate ng-message="max">tb.rulenode.proxy-port-range</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <md-input-container class="md-block">
+                <label translate>tb.rulenode.proxy-user</label>
+                <input name="proxyUser" ng-model="configuration.proxyUser">
             </md-input-container>
-            <md-input-container class="md-block" flex="100" flex-gt-sm="40">
-                <label translate>tb.rulenode.proxy-port</label>
-                <input type="number" step="1" min="1" max="65535" ng-required="true"
-                       name="proxyPort" ng-model="configuration.proxyPort">
-                <div ng-messages="sendEmailConfigForm.proxyPort.$error">
-                    <div translate ng-message="required">tb.rulenode.proxy-port-required</div>
-                    <div translate ng-message="min">tb.rulenode.proxy-port-range</div>
-                    <div translate ng-message="max">tb.rulenode.proxy-port-range</div>
-                </div>
+            <md-input-container class="md-block">
+                <label translate>tb.rulenode.proxy-password</label>
+                <input name="proxyPassword" ng-model="configuration.proxyPassword">
             </md-input-container>
         </div>
-        <md-input-container class="md-block">
-            <label translate>tb.rulenode.proxy-user</label>
-            <input name="proxyUser" ng-model="configuration.proxyUser">
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label translate>tb.rulenode.proxy-password</label>
-            <input name="proxyPassword" ng-model="configuration.proxyPassword">
-        </md-input-container>
     </div>
-
     <md-input-container flex ng-if="!configuration.useSimpleClientHttpFactory || configuration.enableProxy">
         <label translate>tb.rulenode.read-timeout</label>
         <input type="number" step="1" ng-model="configuration.readTimeoutMs" min="0"/>
