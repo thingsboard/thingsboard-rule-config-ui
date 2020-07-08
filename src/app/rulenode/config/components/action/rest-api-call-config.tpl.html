@@ -19,7 +19,7 @@
 <section ng-form name="restApiCallConfigForm" layout="column">
     <md-input-container class="md-block">
         <label translate>tb.rulenode.endpoint-url-pattern</label>
-        <input ng-required="true" name="endpointUrlPattern" ng-model="configuration.restEndpointUrlPattern"/>
+        <input required name="endpointUrlPattern" ng-model="configuration.restEndpointUrlPattern"/>
         <div ng-messages="restApiCallConfigForm.endpointUrlPattern.$error">
             <div ng-message="required" translate>tb.rulenode.endpoint-url-pattern-required</div>
         </div>
@@ -63,14 +63,14 @@
 
                 <md-input-container class="md-block" flex="100" flex-gt-sm="50">
                     <label translate>tb.rulenode.proxy-host</label>
-                    <input ng-required="true" name="proxyHost" ng-model="configuration.proxyHost">
+                    <input required name="proxyHost" ng-model="configuration.proxyHost">
                     <div ng-messages="restApiCallConfigForm.proxyHost.$error">
                         <div translate ng-message="required">tb.rulenode.proxy-host-required</div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block" flex="100" flex-gt-sm="40">
                     <label translate>tb.rulenode.proxy-port</label>
-                    <input type="number" step="1" min="1" max="65535" ng-required="true"
+                    <input type="number" step="1" min="1" max="65535" required
                            name="proxyPort" ng-model="configuration.proxyPort">
                     <div ng-messages="restApiCallConfigForm.proxyPort.$error">
                         <div translate ng-message="required">tb.rulenode.proxy-port-required</div>
