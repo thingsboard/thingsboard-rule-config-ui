@@ -16,15 +16,15 @@
 
 /* eslint-disable import/no-unresolved, import/default */
 
-import relatedAttributesConfigTemplate from './related-attributes-config.tpl.html';
+import checkAlarmStatusConfigTemplate from './check-alarm-status-config.tpl.html';
 
 /* eslint-enable import/no-unresolved, import/default */
 
 /*@ngInject*/
-export default function RelatedAttributesConfigDirective($compile) {
+export default function CheckAlarmStatusConfigDirective($compile, types) {
 
     var linker = function (scope, element, attrs, ngModelCtrl) {
-        var template = relatedAttributesConfigTemplate;
+        var template = checkAlarmStatusConfigTemplate;
         element.html(template);
 
         scope.$watch('configuration', function (newConfiguration, oldConfiguration) {
@@ -33,17 +33,32 @@ export default function RelatedAttributesConfigDirective($compile) {
             }
         });
 
+        scope.alarmStatusList = [];
+
+        for (var status in types.alarmStatus) {
+            scope.alarmStatusList.push(types.alarmStatus[status]);
+        }
+
         ngModelCtrl.$render = function () {
             scope.configuration = ngModelCtrl.$viewValue;
         };
 
+        scope.getAlarmStatusList = function () {
+            return scope.alarmStatusList.filter((listItem) => {
+                return scope.configuration.alarmStatusList.indexOf(listItem) === -1;
+            })
+        };
         $compile(element.contents())(scope);
+
     };
 
     return {
         restrict: "E",
         require: "^ngModel",
-        scope: {},
+        scope: {
+            required: '=ngRequired',
+            readonly: '=ngReadonly'
+        },
         link: linker
     };
 }

@@ -1,6 +1,6 @@
 <!--
 
-    Copyright © 2016-2018 The Thingsboard Authors
+    Copyright © 2016-2020 The Thingsboard Authors
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -61,6 +61,43 @@
         </md-input-container>
         <md-checkbox ng-disabled="$root.loading || readonly"
                      aria-label="{{ 'tb.rulenode.enable-tls' | translate }}" ng-model="configuration.enableTls">{{ 'tb.rulenode.enable-tls' | translate }}</md-checkbox>
+        <md-input-container class="md-block" ng-if="configuration.enableTls">
+            <label translate>tb.rulenode.tls-version</label>
+            <md-select ng-disabled="$root.loading || readonly" ng-model="configuration.tlsVersion">
+                <md-option ng-repeat="tlsVersion in tlsVersions" value="{{tlsVersion}}">
+                    {{tlsVersion}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-checkbox ng-disabled="$root.loading || readonly"
+                     aria-label="{{ 'tb.rulenode.enable-proxy' | translate }}" ng-model="configuration.enableProxy">{{ 'tb.rulenode.enable-proxy' | translate }}</md-checkbox>
+        <div layout-gt-sm="row" ng-if="configuration.enableProxy">
+            <md-input-container class="md-block" flex="100" flex-gt-sm="60">
+                <label translate>tb.rulenode.proxy-host</label>
+                <input ng-required="true" name="proxyHost" ng-model="configuration.proxyHost">
+                <div ng-messages="sendEmailConfigForm.proxyHost.$error">
+                    <div translate ng-message="required">tb.rulenode.proxy-host-required</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex="100" flex-gt-sm="40">
+                <label translate>tb.rulenode.proxy-port</label>
+                <input type="number" step="1" min="1" max="65535" ng-required="true"
+                       name="proxyPort" ng-model="configuration.proxyPort">
+                <div ng-messages="sendEmailConfigForm.proxyPort.$error">
+                    <div translate ng-message="required">tb.rulenode.proxy-port-required</div>
+                    <div translate ng-message="min">tb.rulenode.proxy-port-range</div>
+                    <div translate ng-message="max">tb.rulenode.proxy-port-range</div>
+                </div>
+            </md-input-container>
+        </div>
+        <md-input-container class="md-block" ng-if="configuration.enableProxy">
+            <label translate>tb.rulenode.proxy-user</label>
+            <input name="proxyUser" ng-model="configuration.proxyUser">
+        </md-input-container>
+        <md-input-container class="md-block" ng-if="configuration.enableProxy">
+            <label translate>tb.rulenode.proxy-password</label>
+            <input name="proxyPassword" ng-model="configuration.proxyPassword">
+        </md-input-container>
         <md-input-container class="md-block">
             <label translate>tb.rulenode.username</label>
             <input name="username" placeholder="{{ 'tb.rulenode.enter-username' | translate }}" ng-model="configuration.username">

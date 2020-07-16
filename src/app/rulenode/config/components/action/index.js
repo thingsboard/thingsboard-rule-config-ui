@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016-2018 The Thingsboard Authors
+ * Copyright © 2016-2020 The Thingsboard Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ import CreateRelationConfigDirective from './create-relation-config.directive';
 import saveToCustomTableConfigDirective from './save-to-custom-table-config.directive';
 import gpsGeoActionConfigDirective from './gps-geo-action-config.directive';
 import PubsubConfigDirective from "./pubsub-config.directive";
+import CheckPointConfigDirective from "./check-point-config.directive";
 
 export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeTimeseriesConfig', TimeseriesConfigDirective)
@@ -64,4 +65,5 @@ export default angular.module('thingsboard.ruleChain.config.action', [])
     .directive('tbActionNodeCustomTableConfig', saveToCustomTableConfigDirective)
     .directive('tbActionNodeGpsGeofencingConfig', gpsGeoActionConfigDirective)
     .directive('tbActionNodePubSubConfig', PubsubConfigDirective)
+    .directive('tbActionNodeCheckPointConfig', CheckPointConfigDirective)
     .name;

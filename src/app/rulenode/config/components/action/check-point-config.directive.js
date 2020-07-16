@@ -16,16 +16,19 @@
 
 /* eslint-disable import/no-unresolved, import/default */
 
-import relatedAttributesConfigTemplate from './related-attributes-config.tpl.html';
+import CheckPointConfigTemplate from './check-point-config.tpl.html';
 
 /* eslint-enable import/no-unresolved, import/default */
 
 /*@ngInject*/
-export default function RelatedAttributesConfigDirective($compile) {
+export default function CheckPointConfigDirective($compile, types) {
 
     var linker = function (scope, element, attrs, ngModelCtrl) {
-        var template = relatedAttributesConfigTemplate;
+        var template = CheckPointConfigTemplate;
         element.html(template);
+
+        scope.types = types;
+        scope.serviceType = "TB_RULE_ENGINE";
 
         scope.$watch('configuration', function (newConfiguration, oldConfiguration) {
             if (!angular.equals(newConfiguration, oldConfiguration)) {

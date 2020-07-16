@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016-2018 The Thingsboard Authors
+ * Copyright © 2016-2020 The Thingsboard Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,13 +21,14 @@ import kafkaConfigTemplate from './kafka-config.tpl.html';
 /* eslint-enable import/no-unresolved, import/default */
 
 /*@ngInject*/
-export default function KafkaConfigDirective($compile) {
+export default function KafkaConfigDirective($compile, ruleNodeTypes) {
 
     var linker = function (scope, element, attrs, ngModelCtrl) {
         var template = kafkaConfigTemplate;
         element.html(template);
 
         scope.ackValues = ["all", "-1", "0", "1"];
+        scope.ruleNodeTypes = ruleNodeTypes;
 
         scope.$watch('configuration', function (newConfiguration, oldConfiguration) {
             if (!angular.equals(newConfiguration, oldConfiguration)) {
@@ -37,6 +38,9 @@ export default function KafkaConfigDirective($compile) {
 
         ngModelCtrl.$render = function () {
             scope.configuration = ngModelCtrl.$viewValue;
+            if(!scope.configuration.hasOwnProperty("kafkaHeadersCharset")) {
+                scope.configuration.kafkaHeadersCharset = "UTF-8";
+            }
         };
 
         $compile(element.contents())(scope);

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016-2018 The Thingsboard Authors
+ * Copyright © 2016-2020 The Thingsboard Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ import CheckRelationConfigDirective from './check-relation-config.directive';
 import OriginatorTypeConfigDirective from './originator-type-config.directive';
 import CheckMessageConfigDirective from './check-message-config.directive.js';
 import gpsGeoFilterConfigDirective from '../filter/gps-geo-filter-config.directive';
+import CheckAlarmStatusDirective from '../filter/check-alarm-status-config.directive';
 
 export default angular.module('thingsboard.ruleChain.config.filter', [])
     .directive('tbFilterNodeScriptConfig', ScriptConfigDirective)
@@ -30,4 +31,5 @@ export default angular.module('thingsboard.ruleChain.config.filter', [])
     .directive('tbFilterNodeOriginatorTypeConfig', OriginatorTypeConfigDirective)
     .directive('tbFilterNodeCheckMessageConfig', CheckMessageConfigDirective)
     .directive('tbFilterNodeGpsGeofencingConfig', gpsGeoFilterConfigDirective)
+    .directive('tbFilterNodeCheckAlarmStatusConfig', CheckAlarmStatusDirective)
     .name;

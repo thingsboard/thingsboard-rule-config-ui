@@ -16,13 +16,13 @@
 
 -->
 
-<section ng-form name="rpcRequestConfigForm" layout="column">
-    <md-input-container class="md-block">
-        <label translate>tb.rulenode.timeout-sec</label>
-        <input ng-required="true" type="number" step="1" name="timeoutInSeconds" ng-model="configuration.timeoutInSeconds" min="0"/>
-        <div ng-messages="rpcRequestConfigForm.timeoutInSeconds.$error" multiple md-auto-hide="false">
-            <div ng-message="required" translate>tb.rulenode.timeout-required</div>
-            <div ng-message="min" translate>tb.rulenode.min-timeout-message</div>
-        </div>
-    </md-input-container>
+<section ng-form name="checkPointConfigForm" layout="column">
+    <tb-queue-type-list
+            the-form="checkPointConfigForm"
+            tb-required="true"
+            ng-disabled="false"
+            queue-type="serviceType"
+            ng-model="configuration.queueName">
+    </tb-queue-type-list>
+    <div class="tb-hint" translate>tb.rulenode.select-queue-hint</div>
 </section>

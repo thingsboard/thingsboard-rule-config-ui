@@ -1,6 +1,6 @@
 <!--
 
-    Copyright © 2016-2018 The Thingsboard Authors
+    Copyright © 2016-2020 The Thingsboard Authors
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@
         <div layout='column' flex="50">
             <md-input-container class="md-block" flex layout="column" style="margin-top: 44px;">
                 <label translate>tb.rulenode.circle-center-latitude</label>
-                <input type="number" min="0" step="0.1" ng-required="true" name="centerLatitude"
+                <input type="number" min="-90" max="90" step="0.1" ng-required="true" name="centerLatitude"
                        ng-model="configuration.centerLatitude"/>
                 <div ng-messages="geoFilterConfigForm.centerLatitude.$error">
                     <div ng-message="required" translate>tb.rulenode.circle-center-latitude-required</div>
@@ -59,7 +59,7 @@
         <div layout='column' flex="50">
             <md-input-container class="md-block" flex style="margin-top: 44px;">
                 <label translate>tb.rulenode.circle-center-longitude</label>
-                <input type="number" min="0" step="0.1" ng-required="true" name="centerLongitude"
+                <input type="number" min="-180" max="180" ng-required="true" name="centerLongitude"
                        ng-model="configuration.centerLongitude"/>
                 <div ng-messages="geoFilterConfigForm.centerLongitude.$error">
                     <div ng-message="required" translate>tb.rulenode.circle-center-longitude-required</div>
