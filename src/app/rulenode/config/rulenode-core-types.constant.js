@@ -153,6 +153,16 @@ export default angular.module('thingsboard.ruleChain.config.types', [])
                     name: "tb.rulenode.credentials-pem"
                 }
             },
+            azureIotHubCredentialTypes: {
+                sas: {
+                    value: "sas",
+                    name: "tb.rulenode.credentials-sas"
+                },
+                'cert.PEM': {
+                    value: "cert.PEM",
+                    name: "tb.rulenode.credentials-pem"
+                }
+            },
             toBytesStandartCharsetTypes: {
                 "US-ASCII":  {
                     value: "US-ASCII",
