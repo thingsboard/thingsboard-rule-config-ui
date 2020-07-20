@@ -71,7 +71,7 @@
                         <section flex layout="column" ng-if="configuration.credentials.type == ruleNodeTypes.azureIotHubCredentialTypes.sas.value">
                             <md-input-container class="md-block">
                                 <label translate>tb.rulenode.sas-key</label>
-                                <input required name="sasKey" ng-model="configuration.credentials.sasKey">
+                                <input required type="password" name="sasKey" ng-model="configuration.credentials.sasKey">
                                 <div ng-messages="azureIotHubConfigForm.sasKey.$error">
                                     <div translate ng-message="required">tb.rulenode.sas-key-required</div>
                                 </div>

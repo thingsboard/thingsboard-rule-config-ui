@@ -69,17 +69,19 @@ export default function AzureIotHubConfigDirective($compile, $mdExpansionPanel, 
 
         scope.clearCertFile = (fileType) => {
             ngModelCtrl.$setDirty();
-            if(fileType == "caCert") {
-                scope.configuration.credentials.caCertFileName = null;
-                scope.configuration.credentials.caCert = null;
-            }
-            if(fileType == "privateKey") {
-                scope.configuration.credentials.privateKeyFileName = null;
-                scope.configuration.credentials.privateKey = null;
-            }
-            if(fileType == "Cert") {
-                scope.configuration.credentials.certFileName = null;
-                scope.configuration.credentials.cert = null;
+            switch (fileType) {
+                case "caCert":
+                    scope.configuration.credentials.caCertFileName = null;
+                    scope.configuration.credentials.caCert = null;
+                    break;
+                case "privateKey":
+                    scope.configuration.credentials.privateKeyFileName = null;
+                    scope.configuration.credentials.privateKey = null;
+                    break;
+                case "Cert":
+                    scope.configuration.credentials.certFileName = null;
+                    scope.configuration.credentials.cert = null;
+                    break;
             }
             scope.updateValidity();
         };
