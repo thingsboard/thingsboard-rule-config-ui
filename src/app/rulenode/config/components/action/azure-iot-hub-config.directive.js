@@ -47,17 +47,19 @@ export default function AzureIotHubConfigDirective($compile, $mdExpansionPanel, 
                         ngModelCtrl.$setDirty();
                         var addedFile = event.target.result;
                         if (addedFile && addedFile.length > 0) {
-                            if(fileType == "caCert") {
-                                scope.configuration.credentials.caCertFileName = $file.name;
-                                scope.configuration.credentials.caCert = addedFile;
-                            }
-                            if(fileType == "privateKey") {
-                                scope.configuration.credentials.privateKeyFileName = $file.name;
-                                scope.configuration.credentials.privateKey = addedFile;
-                            }
-                            if(fileType == "Cert") {
-                                scope.configuration.credentials.certFileName = $file.name;
-                                scope.configuration.credentials.cert = addedFile;
+                            switch (fileType) {
+                                case "caCert":
+                                    scope.configuration.credentials.caCertFileName = $file.name;
+                                    scope.configuration.credentials.caCert = addedFile;
+                                    break;
+                                case "privateKey":
+                                    scope.configuration.credentials.privateKeyFileName = $file.name;
+                                    scope.configuration.credentials.privateKey = addedFile;
+                                    break;
+                                case "Cert":
+                                    scope.configuration.credentials.certFileName = $file.name;
+                                    scope.configuration.credentials.cert = addedFile;
+                                    break;
                             }
                         }
                         scope.updateValidity();
