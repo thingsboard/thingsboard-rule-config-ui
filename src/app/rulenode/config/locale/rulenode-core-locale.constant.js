@@ -68,6 +68,8 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "client-attributes": "Client attributes",
                 "shared-attributes": "Shared attributes",
                 "server-attributes": "Server attributes",
+                "not-notify-device": "Not notify Device",
+                "not-notify-device-hint": "If the message arrives from the device, we will not push it back to the device by default.",
                 "latest-timeseries": "Latest timeseries",
                 "data-keys": "Message data",
                 "metadata-keys": "Message metadata",

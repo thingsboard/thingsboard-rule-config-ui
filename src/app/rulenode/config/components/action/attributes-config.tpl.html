@@ -25,4 +25,10 @@
             </md-option>
         </md-select>
     </md-input-container>
+    <md-input-container ng-if="configuration.scope === 'SHARED_SCOPE'">
+        <md-checkbox flex style="margin-top: 18px;" aria-label="{{ 'tb.rulenode.not-notify-device' | translate }}"
+                     ng-model="configuration.notNotifyDevice">{{ 'tb.rulenode.not-notify-device' | translate }}
+        </md-checkbox>
+        <div class="tb-hint" translate flex >tb.rulenode.not-notify-device-hint</div>
+    </md-input-container>
 </section>
