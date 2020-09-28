@@ -30,6 +30,9 @@ export default function AttributesConfigDirective($compile, types) {
         scope.types = types;
 
         scope.$watch('configuration', function (newConfiguration, oldConfiguration) {
+            if (newConfiguration && angular.isUndefined(newConfiguration.notifyDevice)) {
+                scope.configuration.notifyDevice = true;
+            }
             if (!angular.equals(newConfiguration, oldConfiguration)) {
                 ngModelCtrl.$setViewValue(scope.configuration);
             }
