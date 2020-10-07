@@ -5,7 +5,7 @@
   "description": "ThingsBoard Rules Config UI",
   "scripts": {
     "cleanup": "rm -rf ./target",
-    "getthingsboard": "git clone --branch develop/2.5.5 git@github.com:thingsboard/thingsboard.git ./target/git-tmp/thingsboard",
+    "getthingsboard": "git clone --branch develop/2.5.5 --depth 1 git@github.com:thingsboard/thingsboard.git ./target/git-tmp/thingsboard",
     "start": "babel-node --max_old_space_size=4096 server.js",
     "build": "cross-env NODE_ENV=production webpack -p"
   },
@@ -39,7 +39,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "ng-annotate-loader": "^0.1.1",
-    "node-sass": "^3.9.3",
+    "node-sass": "^4.14.1",
     "postcss-loader": "^0.13.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "sass-loader": "^4.0.2",
