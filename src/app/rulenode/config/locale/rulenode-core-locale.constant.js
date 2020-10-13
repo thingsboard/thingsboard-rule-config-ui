@@ -153,6 +153,7 @@ export default function addRuleNodeCoreLocaleEnglish($translateProvider) {
                 "subject-template": "Subject Template",
                 "subject-template-required": "Subject Template is required",
                 "subject-template-hint": "Mail subject template, use <code>${metaKeyName}</code> to substitute variables from metadata",
+                "html-content":"Mail body has HTML content",
                 "body-template": "Body Template",
                 "body-template-required": "Body Template is required",
                 "body-template-hint": "Mail body template, use <code>${metaKeyName}</code> to substitute variables from metadata",
